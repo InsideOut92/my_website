@@ -1,6 +1,14 @@
 ---
 import '../styles/global.css';
 const { title = "Portfolio" } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/skills', label: 'Skills' },
+  { href: '/projekte', label: 'Projekte' },
+  { href: '/kontakt', label: 'Kontakt' },
+  { href: '/impressum', label: 'Impressum' },
+];
 ---
 <!DOCTYPE html>
 <html lang="de">
@@ -11,7 +19,27 @@ const { title = "Portfolio" } = Astro.props;
   </head>
   <body>
     <div class="container">
+      <header class="header">
+        <a class="brand" href="/">P.S. - Software Development</a>
+        <nav class="nav">
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class={currentPath === link.href ? 'active' : undefined}
+                aria-current={currentPath === link.href ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </header>
       <slot />
+      <footer class="footer">
+        <span>&copy; {new Date().getFullYear()} Patrick Scharf</span>
+        <a href="/impressum">Impressum</a>
+      </footer>
     </div>
   </body>
 </html>
