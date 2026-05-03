@@ -78,9 +78,9 @@ const footerLinks = locale === 'de'
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
     {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-    {alternateDeUrl && <link rel="alternate" hrefLang="de" href={alternateDeUrl} />}
-    {alternateEnUrl && <link rel="alternate" hrefLang="en" href={alternateEnUrl} />}
-    {xDefaultUrl && <link rel="alternate" hrefLang="x-default" href={xDefaultUrl} />}
+    {alternateDeUrl && <link rel="alternate" hreflang="de" href={alternateDeUrl} />}
+    {alternateEnUrl && <link rel="alternate" hreflang="en" href={alternateEnUrl} />}
+    {xDefaultUrl && <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <script is:inline>
