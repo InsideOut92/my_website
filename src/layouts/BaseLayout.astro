@@ -1,25 +1,56 @@
 ---
 import '../styles/global.css';
+import {
+  getAlternatePaths,
+  getLocaleFromPath,
+  getLocalizedPath,
+  getNavLinks,
+  normalizePath,
+  type Locale,
+} from '../utils/i18n';
+
 const {
   title = "Portfolio",
-  description = "Schnittstellenentwicklung, API-Integration und stabile Datenprozesse fuer Unternehmen."
+  description = "Schnittstellenentwicklung, API-Integration und stabile Datenprozesse fuer Unternehmen.",
+  locale: localeProp,
 } = Astro.props;
 
-const currentPath = Astro.url.pathname;
+const currentPath = normalizePath(Astro.url.pathname);
+const locale: Locale = localeProp ?? getLocaleFromPath(currentPath);
 const siteName = "Patrick Scharf - Software Development";
 const pageTitle = title.includes("|") ? title : `${title} | ${siteName}`;
 const canonicalUrl = Astro.site ? new URL(currentPath, Astro.site).toString() : undefined;
 const ogImageUrl = Astro.site ? new URL('/og-image.svg', Astro.site).toString() : undefined;
 
-const navLinks = [
-  { href: '/skills', label: 'Skills' },
-  { href: '/projekte', label: 'Projekte' },
-  { href: '/kontakt', label: 'Kontakt' },
-  { href: '/impressum', label: 'Impressum' },
-];
+const navLinks = getNavLinks(locale);
+const otherLocale: Locale = locale === 'de' ? 'en' : 'de';
+const localeSwitchHref = getLocalizedPath(currentPath, otherLocale);
+const localeSwitchLabel = otherLocale.toUpperCase();
+
+const alternates = getAlternatePaths(currentPath);
+const alternateDeUrl = Astro.site && alternates ? new URL(alternates.de, Astro.site).toString() : undefined;
+const alternateEnUrl = Astro.site && alternates ? new URL(alternates.en, Astro.site).toString() : undefined;
+const xDefaultUrl = Astro.site ? new URL('/', Astro.site).toString() : undefined;
+
+const htmlLang = locale;
+const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
+const skipLabel = locale === 'de' ? 'Zum Inhalt springen' : 'Skip to content';
+
+const brandHref = locale === 'de' ? '/' : '/en';
+const footerLinks = locale === 'de'
+  ? [
+      { href: '/kontakt', label: 'Kontakt' },
+      { href: '/datenschutz', label: 'Datenschutz' },
+      { href: '/impressum', label: 'Impressum' },
+    ]
+  : [
+      { href: '/en/contact', label: 'Contact' },
+      { href: '/en/privacy', label: 'Privacy' },
+      { href: '/en/imprint', label: 'Legal Notice' },
+    ];
 ---
 <!DOCTYPE html>
-<html lang="de">
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -29,7 +60,7 @@ const navLinks = [
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#0f1a2a" />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
@@ -40,35 +71,65 @@ const navLinks = [
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
     {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    {alternateDeUrl && <link rel="alternate" hrefLang="de" href={alternateDeUrl} />}
+    {alternateEnUrl && <link rel="alternate" hrefLang="en" href={alternateEnUrl} />}
+    {xDefaultUrl && <link rel="alternate" hrefLang="x-default" href={xDefaultUrl} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <script is:inline>
+      (() => {
+        const normalize = (path) => (path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path || '/');
+        const pathname = normalize(window.location.pathname);
+        const isEnglishPath = pathname === '/en' || pathname.startsWith('/en/');
+        const preferenceKey = 'preferred-locale';
+
+        if (isEnglishPath) {
+          localStorage.setItem(preferenceKey, 'en');
+          return;
+        }
+
+        if (pathname !== '/') {
+          localStorage.setItem(preferenceKey, 'de');
+          return;
+        }
+
+        const stored = localStorage.getItem(preferenceKey);
+        const browserLanguage = (navigator.language || '').toLowerCase();
+        const preferEnglish = stored ? stored === 'en' : browserLanguage.startsWith('en');
+
+        if (preferEnglish) {
+          window.location.replace('/en');
+        }
+      })();
+    </script>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+    <a class="skip-link" href="#main-content">{skipLabel}</a>
     <div class="container">
       <header class="header">
-        <a class="brand" href="/">P.S. - Software Development</a>
+        <a class="brand" href={brandHref}>P.S. - Software Development</a>
         <nav class="nav">
           {
             navLinks.map((link) => (
               <a
                 href={link.href}
-                class={currentPath === link.href ? 'active' : undefined}
-                aria-current={currentPath === link.href ? 'page' : undefined}
+                class={normalizePath(link.href) === currentPath ? 'active' : undefined}
+                aria-current={normalizePath(link.href) === currentPath ? 'page' : undefined}
               >
                 {link.label}
               </a>
             ))
           }
+          <a class="locale-switch" href={localeSwitchHref} lang={otherLocale}>
+            {localeSwitchLabel}
+          </a>
         </nav>
       </header>
       <slot />
       <footer class="footer">
         <span>&copy; {new Date().getFullYear()} Patrick Scharf</span>
         <div class="footer-links">
-          <a href="/kontakt">Kontakt</a>
-          <a href="/datenschutz">Datenschutz</a>
-          <a href="/impressum">Impressum</a>
+          {footerLinks.map((link) => <a href={link.href}>{link.label}</a>)}
         </div>
       </footer>
     </div>

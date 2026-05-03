@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const lastUpdated = '03.05.2026';
+---
+<BaseLayout
+  locale="en"
+  title="Privacy Policy"
+  description="Privacy policy regarding the processing of personal data on this website."
+>
+  <main class="page" id="main-content">
+    <section class="page-intro">
+      <p class="eyebrow">Legal Information</p>
+      <h1>Privacy Policy</h1>
+      <p class="muted">
+        This privacy policy explains the type, scope, and purpose of personal data processing on
+        this website.
+      </p>
+    </section>
+
+    <section class="card legal-card">
+      <h2>1. Controller</h2>
+      <address>
+        Patrick Scharf<br />
+        Am Liedlein 3b<br />
+        97222 Rimpar<br />
+        Germany
+      </address>
+      <p>E-Mail: <a href="mailto:Softwareentwickler@tutamail.com">Softwareentwickler@tutamail.com</a></p>
+    </section>
+
+    <section class="card legal-card">
+      <h2>2. Access Data and Hosting</h2>
+      <p>
+        When this website is accessed, the hosting provider processes technically required
+        information (for example IP address, date/time, requested resource, browser type) to ensure
+        secure and stable operation.
+      </p>
+      <p>Legal basis: Art. 6(1)(f) GDPR (legitimate interest in secure operation).</p>
+      <p>Hosting provider: Cloudflare</p>
+    </section>
+
+    <section class="card legal-card">
+      <h2>3. Contact Requests</h2>
+      <p>
+        If you contact us by e-mail, your provided information will be stored for processing your
+        request and potential follow-up questions.
+      </p>
+      <p>Legal basis: Art. 6(1)(b) GDPR (pre-contractual communication).</p>
+    </section>
+
+    <section class="card legal-card">
+      <h2>4. Recipients and Transfer</h2>
+      <p>
+        Personal data is only disclosed where necessary for contract fulfilment, where legally
+        required, or where explicit consent has been granted.
+      </p>
+    </section>
+
+    <section class="card legal-card">
+      <h2>5. Storage Period</h2>
+      <p>
+        Personal data is stored only as long as required for the respective purposes or where legal
+        retention obligations apply.
+      </p>
+    </section>
+
+    <section class="card legal-card">
+      <h2>6. Data Subject Rights</h2>
+      <p>
+        Under applicable law, you have rights of access, rectification, erasure, restriction of
+        processing, data portability, and objection to the processing of personal data.
+      </p>
+      <p>
+        You also have the right to lodge a complaint with a supervisory authority, in particular in
+        the EU member state of your habitual residence, your place of work, or the place of the
+        alleged infringement.
+      </p>
+    </section>
+
+    <p class="muted legal-meta">Last updated: {lastUpdated}</p>
+  </main>
+</BaseLayout>

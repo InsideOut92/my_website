@@ -1,6 +1,19 @@
 import type { APIRoute } from 'astro';
 
-const ROUTES = ['/', '/skills', '/projekte', '/kontakt', '/impressum', '/datenschutz'];
+const ROUTES = [
+  '/',
+  '/skills',
+  '/projekte',
+  '/kontakt',
+  '/impressum',
+  '/datenschutz',
+  '/en',
+  '/en/skills',
+  '/en/projects',
+  '/en/contact',
+  '/en/imprint',
+  '/en/privacy',
+];
 
 export const GET: APIRoute = ({ request }) => {
   const configuredSite =

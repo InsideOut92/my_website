@@ -1,0 +1,43 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/en/Hero.astro';
+import Skills from '../../components/en/Skills.astro';
+import Projects from '../../components/en/Projects.astro';
+import Contact from '../../components/en/Contact.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Patrick Scharf",
+  jobTitle: "Software Developer",
+  ...(Astro.site ? { url: Astro.site.toString() } : {}),
+  email: "mailto:Softwareentwickler@tutamail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Rimpar",
+    addressCountry: "DE"
+  },
+  knowsAbout: [
+    "API Integration",
+    "System Interfaces",
+    "Data Mapping",
+    "Automation",
+    "PHP",
+    "Python",
+    "MySQL"
+  ]
+};
+---
+<BaseLayout
+  locale="en"
+  title="Portfolio"
+  description="Patrick Scharf builds stable integrations between business systems and automates data workflows."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <main class="page" id="main-content">
+    <Hero />
+    <Skills />
+    <Projects />
+    <Contact />
+  </main>
+</BaseLayout>
