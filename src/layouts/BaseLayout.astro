@@ -1,5 +1,6 @@
 ---
-const { title = "My Portfolio" } = Astro.props;
+import '../styles/global.css';
+const { title = "Portfolio" } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="de">
@@ -9,6 +10,8 @@ const { title = "My Portfolio" } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <div class="container">
+      <slot />
+    </div>
   </body>
 </html>
