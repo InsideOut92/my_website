@@ -1,7 +1,14 @@
 ---
 import '../styles/global.css';
-const { title = "Portfolio" } = Astro.props;
+const {
+  title = "Portfolio",
+  description = "Schnittstellenentwicklung, API-Integration und stabile Datenprozesse fuer Unternehmen."
+} = Astro.props;
+
 const currentPath = Astro.url.pathname;
+const siteName = "Patrick Scharf - Software Development";
+const pageTitle = title.includes("|") ? title : `${title} | ${siteName}`;
+const canonicalUrl = Astro.site ? new URL(currentPath, Astro.site).toString() : undefined;
 
 const navLinks = [
   { href: '/skills', label: 'Skills' },
@@ -15,9 +22,26 @@ const navLinks = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Patrick Scharf" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0f1a2a" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
     <div class="container">
       <header class="header">
         <a class="brand" href="/">P.S. - Software Development</a>
@@ -38,7 +62,10 @@ const navLinks = [
       <slot />
       <footer class="footer">
         <span>&copy; {new Date().getFullYear()} Patrick Scharf</span>
-        <a href="/impressum">Impressum</a>
+        <div class="footer-links">
+          <a href="/kontakt">Kontakt</a>
+          <a href="/impressum">Impressum</a>
+        </div>
       </footer>
     </div>
   </body>

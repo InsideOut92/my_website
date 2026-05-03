@@ -4,9 +4,36 @@ import Hero from '../components/Hero.astro';
 import Skills from '../components/Skills.astro';
 import Projects from '../components/Projects.astro';
 import Contact from '../components/Contact.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Patrick Scharf",
+  jobTitle: "Anwendungsentwickler",
+  ...(Astro.site ? { url: Astro.site.toString() } : {}),
+  email: "mailto:Softwareentwickler@tutamail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Rimpar",
+    addressCountry: "DE"
+  },
+  knowsAbout: [
+    "API-Integration",
+    "Systemschnittstellen",
+    "Datenmapping",
+    "Automatisierung",
+    "PHP",
+    "Python",
+    "MySQL"
+  ]
+};
 ---
-<BaseLayout title="Portfolio">
-  <main class="page">
+<BaseLayout
+  title="Portfolio"
+  description="Patrick Scharf entwickelt stabile Schnittstellen zwischen Systemen und automatisiert Datenprozesse fuer belastbare Unternehmensablaeufe."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <main class="page" id="main-content">
     <Hero />
     <Skills />
     <Projects />
