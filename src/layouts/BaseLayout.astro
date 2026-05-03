@@ -3,7 +3,6 @@ import '../styles/global.css';
 import {
   getAlternatePaths,
   getLocaleFromPath,
-  getLocalizedPath,
   getNavLinks,
   normalizePath,
   type Locale,
@@ -13,6 +12,7 @@ const {
   title = "Portfolio",
   description = "Schnittstellenentwicklung, API-Integration und stabile Datenprozesse fuer Unternehmen.",
   locale: localeProp,
+  robots = 'index,follow',
 } = Astro.props;
 
 const currentPath = normalizePath(Astro.url.pathname);
@@ -24,17 +24,24 @@ const ogImageUrl = Astro.site ? new URL('/og-image.svg', Astro.site).toString() 
 
 const navLinks = getNavLinks(locale);
 const otherLocale: Locale = locale === 'de' ? 'en' : 'de';
-const localeSwitchHref = getLocalizedPath(currentPath, otherLocale);
-const localeSwitchLabel = otherLocale.toUpperCase();
-
 const alternates = getAlternatePaths(currentPath);
+const localeSwitchHref = alternates
+  ? alternates[otherLocale]
+  : otherLocale === 'en'
+    ? '/en'
+    : '/';
+const localeSwitchLabel = otherLocale.toUpperCase();
+const localeSwitchAriaLabel =
+  locale === 'de' ? 'Switch to English version' : 'Zur deutschen Version wechseln';
+
 const alternateDeUrl = Astro.site && alternates ? new URL(alternates.de, Astro.site).toString() : undefined;
 const alternateEnUrl = Astro.site && alternates ? new URL(alternates.en, Astro.site).toString() : undefined;
-const xDefaultUrl = Astro.site ? new URL('/', Astro.site).toString() : undefined;
+const xDefaultUrl = Astro.site && alternates ? new URL('/', Astro.site).toString() : undefined;
 
 const htmlLang = locale;
 const ogLocale = locale === 'de' ? 'de_DE' : 'en_US';
 const skipLabel = locale === 'de' ? 'Zum Inhalt springen' : 'Skip to content';
+const navAriaLabel = locale === 'de' ? 'Hauptnavigation' : 'Main navigation';
 
 const brandHref = locale === 'de' ? '/' : '/en';
 const footerLinks = locale === 'de'
@@ -57,7 +64,7 @@ const footerLinks = locale === 'de'
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Patrick Scharf" />
-    <meta name="robots" content="index,follow" />
+    <meta name="robots" content={robots} />
     <meta name="theme-color" content="#0f1a2a" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={ogLocale} />
@@ -78,28 +85,59 @@ const footerLinks = locale === 'de'
     <link rel="icon" href="/favicon.ico" />
     <script is:inline>
       (() => {
-        const normalize = (path) => (path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path || '/');
-        const pathname = normalize(window.location.pathname);
-        const isEnglishPath = pathname === '/en' || pathname.startsWith('/en/');
-        const preferenceKey = 'preferred-locale';
+        try {
+          const normalize = (path) => (path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path || '/');
+          const pathname = normalize(window.location.pathname);
+          const isEnglishPath = pathname === '/en' || pathname.startsWith('/en/');
+          const preferenceKey = 'preferred-locale';
+          const setPreference = (value) => localStorage.setItem(preferenceKey, value);
 
-        if (isEnglishPath) {
-          localStorage.setItem(preferenceKey, 'en');
-          return;
-        }
+          document.addEventListener(
+            'click',
+            (event) => {
+              const rawTarget = event.target;
+              const elementTarget =
+                rawTarget instanceof Element
+                  ? rawTarget
+                  : rawTarget instanceof Node
+                    ? rawTarget.parentElement
+                    : null;
 
-        if (pathname !== '/') {
-          localStorage.setItem(preferenceKey, 'de');
-          return;
-        }
+              if (!elementTarget) {
+                return;
+              }
 
-        const stored = localStorage.getItem(preferenceKey);
-        const browserLanguage = (navigator.language || '').toLowerCase();
-        const preferEnglish = stored ? stored === 'en' : browserLanguage.startsWith('en');
+              const switchLink = elementTarget.closest('a.locale-switch');
+              if (!(switchLink instanceof HTMLAnchorElement)) {
+                return;
+              }
 
-        if (preferEnglish) {
-          window.location.replace('/en');
-        }
+              const targetLocale = (switchLink.getAttribute('lang') || '').toLowerCase();
+              if (targetLocale === 'de' || targetLocale === 'en') {
+                setPreference(targetLocale);
+              }
+            },
+            { capture: true }
+          );
+
+          if (isEnglishPath) {
+            setPreference('en');
+            return;
+          }
+
+          if (pathname !== '/') {
+            setPreference('de');
+            return;
+          }
+
+          const stored = localStorage.getItem(preferenceKey);
+          const browserLanguage = (navigator.language || '').toLowerCase();
+          const preferEnglish = stored ? stored === 'en' : browserLanguage.startsWith('en');
+
+          if (preferEnglish) {
+            window.location.replace('/en');
+          }
+        } catch {}
       })();
     </script>
   </head>
@@ -108,7 +146,7 @@ const footerLinks = locale === 'de'
     <div class="container">
       <header class="header">
         <a class="brand" href={brandHref}>P.S. - Software Development</a>
-        <nav class="nav">
+        <nav class="nav" aria-label={navAriaLabel}>
           {
             navLinks.map((link) => (
               <a
@@ -120,7 +158,7 @@ const footerLinks = locale === 'de'
               </a>
             ))
           }
-          <a class="locale-switch" href={localeSwitchHref} lang={otherLocale}>
+          <a class="locale-switch" href={localeSwitchHref} lang={otherLocale} aria-label={localeSwitchAriaLabel}>
             {localeSwitchLabel}
           </a>
         </nav>

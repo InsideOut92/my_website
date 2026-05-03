@@ -1,19 +1,14 @@
 import type { APIRoute } from 'astro';
+import { PAGE_ROUTES, type PageKey } from '../utils/i18n';
 
-const ROUTES = [
-  '/',
-  '/skills',
-  '/projekte',
-  '/kontakt',
-  '/impressum',
-  '/datenschutz',
-  '/en',
-  '/en/skills',
-  '/en/projects',
-  '/en/contact',
-  '/en/imprint',
-  '/en/privacy',
-];
+const PAGE_KEYS: PageKey[] = ['home', 'skills', 'projects', 'contact', 'imprint', 'privacy'];
+const ROUTES = PAGE_KEYS.flatMap((key) => {
+  const route = PAGE_ROUTES[key];
+  return [
+    { loc: route.de, de: route.de, en: route.en },
+    { loc: route.en, de: route.de, en: route.en },
+  ];
+});
 
 export const GET: APIRoute = ({ request }) => {
   const configuredSite =
@@ -23,12 +18,22 @@ export const GET: APIRoute = ({ request }) => {
   const lastmod = new Date().toISOString().split('T')[0];
 
   const urls = ROUTES.map((route) => {
-    const loc = `${origin}${route}`;
-    return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod></url>`;
+    const loc = `${origin}${route.loc}`;
+    const de = `${origin}${route.de}`;
+    const en = `${origin}${route.en}`;
+    const xDefault = `${origin}/`;
+    return `  <url>
+    <loc>${loc}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="${de}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${en}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${xDefault}" />
+  </url>`;
   }).join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 </urlset>`;
 
