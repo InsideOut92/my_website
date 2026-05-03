@@ -1,0 +1,32 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1527" />
+      <stop offset="1" stop-color="#060B15" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#56D4FF" />
+      <stop offset="1" stop-color="#2EB8EB" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1020" cy="-120" r="360" fill="#56D4FF" fill-opacity="0.16" />
+  <circle cx="160" cy="90" r="250" fill="#345FFF" fill-opacity="0.12" />
+
+  <rect x="72" y="78" width="1056" height="474" rx="26" fill="#121C31" stroke="#314360" />
+  <text x="128" y="220" fill="#56D4FF" font-size="34" font-family="Segoe UI, Arial, sans-serif" letter-spacing="3">
+    SOFTWARE DEVELOPMENT
+  </text>
+  <text x="128" y="318" fill="#EDF3FF" font-size="72" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    Patrick Scharf
+  </text>
+  <text x="128" y="388" fill="#A5B6D6" font-size="40" font-family="Segoe UI, Arial, sans-serif">
+    Schnittstellen, Datenprozesse, Automatisierung
+  </text>
+
+  <rect x="128" y="446" width="472" height="56" rx="12" fill="url(#accent)" />
+  <text x="152" y="482" fill="#062031" font-size="28" font-family="Segoe UI, Arial, sans-serif" font-weight="700">
+    API-Integration fuer Unternehmen
+  </text>
+</svg>
