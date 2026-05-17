@@ -10,13 +10,13 @@ export type PageKey =
   | 'privacy';
 
 export const PAGE_ROUTES: Record<PageKey, Record<Locale, string>> = {
-  home: { de: '/', en: '/en' },
-  blog: { de: '/blog', en: '/en/blog' },
-  skills: { de: '/skills', en: '/en/skills' },
-  projects: { de: '/projekte', en: '/en/projects' },
-  contact: { de: '/kontakt', en: '/en/contact' },
-  imprint: { de: '/impressum', en: '/en/imprint' },
-  privacy: { de: '/datenschutz', en: '/en/privacy' },
+  home: { de: '/', en: '/en/' },
+  blog: { de: '/blog/', en: '/en/blog/' },
+  skills: { de: '/skills/', en: '/en/skills/' },
+  projects: { de: '/projekte/', en: '/en/projects/' },
+  contact: { de: '/kontakt/', en: '/en/contact/' },
+  imprint: { de: '/impressum/', en: '/en/imprint/' },
+  privacy: { de: '/datenschutz/', en: '/en/privacy/' },
 };
 
 const NAV_LABELS: Record<Locale, Record<PageKey, string>> = {

@@ -387,6 +387,7 @@ p {
 
 .article {
   max-width: 76ch;
+  margin: 0 auto;
 }
 
 .article-content {

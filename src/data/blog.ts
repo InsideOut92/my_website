@@ -11,7 +11,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'automatisierung-im-bestand-stabil-ausrollen',
     title: 'Automatisierung im Bestand: klein starten, stabil ausrollen',
-    date: '2026-06-09',
+    date: '2026-05-17',
     readingTime: '7 min',
     summary:
       'Wie wiederkehrende Betriebsaufgaben schrittweise automatisiert werden können, ohne laufende Prozesse zu destabilisieren.',
@@ -20,7 +20,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'monitoring-fuer-schnittstellen-welche-signale-zaehlen',
     title: 'Monitoring für Schnittstellen: Welche Signale im Betrieb wirklich zählen',
-    date: '2026-06-02',
+    date: '2026-05-16',
     readingTime: '7 min',
     summary:
       'Praxisorientierter Überblick zu Monitoring-Signalen für Integrationen – von technischen Fehlern bis zu prozessrelevanten Frühindikatoren.',
@@ -47,7 +47,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'datenqualitaet-validierung-vor-verarbeitung',
     title: 'Datenqualität in Integrationen: Validierung vor Verarbeitung',
-    date: '2026-05-26',
+    date: '2026-05-15',
     readingTime: '7 min',
     summary:
       'Warum Vorvalidierung in Integrationsprozessen Folgefehler reduziert und operative Stabilität in heterogenen Datenlandschaften verbessert.',
@@ -56,7 +56,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'legacy-modernisierung-ohne-produktionsstillstand',
     title: 'Legacy-Modernisierung ohne Produktionsstillstand',
-    date: '2026-05-19',
+    date: '2026-05-14',
     readingTime: '7 min',
     summary:
       'Praxisleitfaden für schrittweise Modernisierung im Bestand mit Fokus auf Betriebsstabilität, Änderbarkeit und nachvollziehbare Risiken.',
@@ -104,7 +104,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'automation-in-existing-systems-start-small-roll-out-stable',
     title: 'Automation in Existing Systems: Start Small, Roll Out Stable',
-    date: '2026-06-09',
+    date: '2026-05-17',
     readingTime: '7 min',
     summary:
       'How recurring operational tasks can be automated incrementally without destabilizing live production processes.',
@@ -113,7 +113,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'interface-monitoring-which-signals-matter-in-operations',
     title: 'Interface Monitoring: Which Signals Actually Matter in Operations',
-    date: '2026-06-02',
+    date: '2026-05-16',
     readingTime: '7 min',
     summary:
       'Practical overview of monitoring signals for integrations, from technical failures to process-level early indicators.',
@@ -140,7 +140,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'data-quality-validation-before-processing',
     title: 'Data Quality in Integrations: Validation Before Processing',
-    date: '2026-05-26',
+    date: '2026-05-15',
     readingTime: '7 min',
     summary:
       'Why pre-processing validation reduces downstream incidents and improves operational stability across heterogeneous data sources.',
@@ -149,7 +149,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'legacy-modernization-without-production-downtime',
     title: 'Legacy Modernization Without Production Downtime',
-    date: '2026-05-19',
+    date: '2026-05-14',
     readingTime: '7 min',
     summary:
       'Practical guide for phased modernization in existing systems with focus on operational stability, maintainability, and transparent risk.',
