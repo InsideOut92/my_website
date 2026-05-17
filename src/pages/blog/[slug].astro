@@ -1,32 +1,32 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { blogPostsDe } from '../../data/blog';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { blogPostsDe } from "../../data/blog";
 
 type ContentMap = Record<string, string[]>;
 
 const contentBySlug: ContentMap = {
-  'cloudflare-migration-portfolio-domain': [
-    'Diese Website wurde initial als einfache Projektseite auf einer Standard-Subdomain betrieben. Für einen professionellen Auftritt war der nächste Schritt eine eigene Domain mit konsistenter technischer Basis.',
-    'Die Migration wurde nicht als reine DNS-Aufgabe behandelt, sondern als Qualitätsmaßnahme für Auffindbarkeit und Wartbarkeit. Ziel war, dass Nutzerführung, Indexierung und zukünftige Erweiterungen stabil bleiben.',
-    'Wichtige Entscheidungen in der Umsetzung: konsistente Canonical-URLs, hreflang-Verknüpfungen für Deutsch/Englisch, saubere Sitemap-Generierung und robots.txt mit korrekter Referenz auf die produktive Domain.',
-    'Parallel wurde die Auslieferung gehärtet. Dazu gehören Sicherheitsheader auf Response-Ebene, klare URL-Struktur und strukturierte Daten für zentrale Seiten und Blog-Artikel.',
-    'Im Content-Bereich wurde die Seite bewusst von generischen Profiltexten zu nachvollziehbaren Engineering-Case-Patterns verschoben. Der Fokus liegt auf Problem, Lösung und Ergebnis statt auf Schlagwortlisten.',
-    'Das Ergebnis ist kein einmaliger Relaunch, sondern eine belastbare Ausgangsbasis: technisch konsistent, sprachlich differenziert und bereit für weitere fachliche Beiträge mit echtem Signal für Recruiter und Auftraggeber.',
+  "cloudflare-migration-portfolio-domain": [
+    "Diese Website wurde initial als einfache Projektseite auf einer Standard-Subdomain betrieben. Für einen professionellen Auftritt war der nächste Schritt eine eigene Domain mit konsistenter technischer Basis.",
+    "Die Migration wurde nicht als reine DNS-Aufgabe behandelt, sondern als Qualitätsmaßnahme für Auffindbarkeit und Wartbarkeit. Ziel war, dass Nutzerführung, Indexierung und zukünftige Erweiterungen stabil bleiben.",
+    "Wichtige Entscheidungen in der Umsetzung: konsistente Canonical-URLs, hreflang-Verknüpfungen für Deutsch/Englisch, saubere Sitemap-Generierung und robots.txt mit korrekter Referenz auf die produktive Domain.",
+    "Parallel wurde die Auslieferung gehärtet. Dazu gehören Sicherheitsheader auf Response-Ebene, klare URL-Struktur und strukturierte Daten für zentrale Seiten und Blog-Artikel.",
+    "Im Content-Bereich wurde die Seite bewusst von generischen Profiltexten zu nachvollziehbaren Engineering-Case-Patterns verschoben. Der Fokus liegt auf Problem, Lösung und Ergebnis statt auf Schlagwortlisten.",
+    "Das Ergebnis ist kein einmaliger Relaunch, sondern eine belastbare Ausgangsbasis: technisch konsistent, sprachlich differenziert und bereit für weitere fachliche Beiträge.",
   ],
-  'api-integrationen-robust-designen': [
-    'Viele Integrationsprobleme entstehen nicht durch fehlende Features, sondern durch unklare Fehlerpfade. In produktiven Systemen ist entscheidend, wie sauber Timeouts, Wiederholungen und Teilfehler behandelt werden.',
-    'Bewährt haben sich klare technische Verträge: eindeutige Fehlerklassen, idempotente Endpunkte, Retry mit Backoff und aussagekräftige Log-Korrelation. Damit sinken Störzeiten und Ursachen lassen sich schneller eingrenzen.',
-    'Zusammen mit Monitoring auf fachlicher Ebene entsteht Stabilität: Nicht nur HTTP-Status beobachten, sondern auch prozessrelevante Kennzahlen wie Erfolgsquote pro Datentyp, Laufzeitverteilung und Rückstau in Warteschlangen.',
+  "api-integrationen-robust-designen": [
+    "Viele Integrationsprobleme entstehen nicht durch fehlende Features, sondern durch unklare Fehlerpfade. In produktiven Systemen ist entscheidend, wie sauber Timeouts, Wiederholungen und Teilfehler behandelt werden.",
+    "Bewährt haben sich klare technische Verträge: eindeutige Fehlerklassen, idempotente Endpunkte, Retry mit Backoff und aussagekräftige Log-Korrelation. Damit sinken Störzeiten und Ursachen lassen sich schneller eingrenzen.",
+    "Zusammen mit Monitoring auf fachlicher Ebene entsteht Stabilität: Nicht nur HTTP-Status beobachten, sondern auch prozessrelevante Kennzahlen wie Erfolgsquote pro Datentyp, Laufzeitverteilung und Rückstau in Warteschlangen.",
   ],
-  'datenmapping-ohne-chaos': [
-    'Datenmapping wird oft als reine Transformationsaufgabe gesehen. In Wirklichkeit ist es ein Vertrag zwischen Fachprozess und Technik. Sobald dieser Vertrag implizit bleibt, steigen Fehlerquote und Nacharbeit.',
-    'Hilfreich sind drei Ebenen: strukturelle Validierung, fachliche Plausibilität und technische Durchsetzbarkeit. Jede Ebene benötigt nachvollziehbare Fehlermeldungen, damit Operations und Fachseite schnell reagieren können.',
-    'In Projekten zahlt sich eine versionierte Mapping-Spezifikation aus. Sie macht Änderungen transparent und reduziert Reibung zwischen beteiligten Teams, besonders bei mehreren Quellsystemen.',
+  "datenmapping-ohne-chaos": [
+    "Datenmapping wird oft als reine Transformationsaufgabe gesehen. In Wirklichkeit ist es ein Vertrag zwischen Fachprozess und Technik. Sobald dieser Vertrag implizit bleibt, steigen Fehlerquote und Nacharbeit.",
+    "Hilfreich sind drei Ebenen: strukturelle Validierung, fachliche Plausibilität und technische Durchsetzbarkeit. Jede Ebene benötigt nachvollziehbare Fehlermeldungen, damit Operations und Fachseite schnell reagieren können.",
+    "In Projekten zahlt sich eine versionierte Mapping-Spezifikation aus. Sie macht Änderungen transparent und reduziert Reibung zwischen beteiligten Teams, besonders bei mehreren Quellsystemen.",
   ],
-  'legacy-modernisieren-ohne-risiko': [
-    'Bei Legacy-Systemen ist das größte Risiko selten die Technik selbst, sondern unkontrollierte Eingriffe unter Zeitdruck. Ein tragfähiger Ansatz trennt Stabilisierung, Transparenz und Funktionsausbau sauber voneinander.',
-    'Startpunkt ist Messbarkeit: Welche Teile verursachen reale Störungen, welche Workflows sind geschäftskritisch, wo liegen harte Abhängigkeiten? Erst dann lohnt gezieltes Refactoring mit kleinen, reversiblen Schritten.',
-    'Wer früh auf Testabdeckung für kritische Pfade, saubere Deploy-Routinen und nachvollziehbare Change-Logs setzt, reduziert Betriebsrisiko deutlich und gewinnt gleichzeitig Entwicklungsgeschwindigkeit zurück.',
+  "legacy-modernisieren-ohne-risiko": [
+    "Bei Legacy-Systemen ist das größte Risiko selten die Technik selbst, sondern unkontrollierte Eingriffe unter Zeitdruck. Ein tragfähiger Ansatz trennt Stabilisierung, Transparenz und Funktionsausbau sauber voneinander.",
+    "Startpunkt ist Messbarkeit: Welche Teile verursachen reale Störungen, welche Workflows sind geschäftskritisch, wo liegen harte Abhängigkeiten? Erst dann lohnt gezieltes Refactoring mit kleinen, reversiblen Schritten.",
+    "Wer früh auf Testabdeckung für kritische Pfade, saubere Deploy-Routinen und nachvollziehbare Change-Logs setzt, reduziert Betriebsrisiko deutlich und gewinnt gleichzeitig Entwicklungsgeschwindigkeit zurück.",
   ],
 };
 
@@ -40,26 +40,33 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 const articleContent = contentBySlug[post.slug] ?? [];
 const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
   headline: post.title,
   datePublished: post.date,
   dateModified: post.date,
-  inLanguage: 'de-DE',
+  inLanguage: "de-DE",
   author: {
-    '@type': 'Person',
-    name: 'Patrick Scharf',
+    "@type": "Person",
+    name: "Patrick Scharf",
   },
   publisher: {
-    '@type': 'Person',
-    name: 'Patrick Scharf',
+    "@type": "Person",
+    name: "Patrick Scharf",
   },
   description: post.summary,
-  ...(Astro.site ? { mainEntityOfPage: new URL(`/blog/${post.slug}`, Astro.site).toString() } : {}),
+  ...(Astro.site
+    ? { mainEntityOfPage: new URL(`/blog/${post.slug}`, Astro.site).toString() }
+    : {}),
 };
 ---
+
 <BaseLayout title={post.title} description={post.summary}>
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
   <main class="page" id="main-content">
     <article class="panel article">
       <p class="muted post-meta">
