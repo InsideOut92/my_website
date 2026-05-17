@@ -173,6 +173,21 @@ h3 {
 
 p {
   margin: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  hyphens: auto;
+}
+
+h1,
+h2,
+h3,
+a,
+span,
+strong,
+small,
+li {
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .muted {
@@ -537,6 +552,16 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Prevent visually glued inline content such as "LabelValue" in mixed rich-text lines. */
+p > strong + span,
+p > strong + a,
+p > a + a,
+p > span + span,
+p > span + a,
+p > a + span {
+  margin-left: 0.3em;
 }
 
 a:focus-visible,
