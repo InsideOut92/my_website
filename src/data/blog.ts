@@ -9,6 +9,33 @@ export type BlogPost = {
 
 export const blogPostsDe: BlogPost[] = [
   {
+    slug: 'entwicklungspfad-von-lobster-data-zu-sap-naher-integration',
+    title: 'Vom Lobster-Data-Schwerpunkt zur SAP-nahen Integrationsentwicklung',
+    date: '2026-05-17',
+    readingTime: '8 min',
+    summary:
+      'Wie sich vorhandene Integrationspraxis strukturiert in Richtung SAP-naher Entwicklungsrollen ausbauen lässt, ohne unhaltbare Erfahrungsclaims.',
+    tags: ['SAP', 'Lobster Data', 'Karrierepfad'],
+  },
+  {
+    slug: 'lobster-data-mapping-und-validierung-im-betrieb',
+    title: 'Lobster Data in der Praxis: Mapping und Validierung im laufenden Betrieb',
+    date: '2026-05-17',
+    readingTime: '8 min',
+    summary:
+      'Praxisorientierter Überblick, wie Mapping-, Routing- und Validierungslogik in Lobster Data strukturiert werden kann, um Integrationsprozesse stabil zu betreiben.',
+    tags: ['Lobster Data', 'Mapping', 'Betrieb'],
+  },
+  {
+    slug: 'datenqualitaet-validierung-vor-verarbeitung',
+    title: 'Datenqualität in Integrationen: Validierung vor Verarbeitung',
+    date: '2026-05-26',
+    readingTime: '7 min',
+    summary:
+      'Warum Vorvalidierung in Integrationsprozessen Folgefehler reduziert und operative Stabilität in heterogenen Datenlandschaften verbessert.',
+    tags: ['Datenqualität', 'Validierung', 'Integration'],
+  },
+  {
     slug: 'legacy-modernisierung-ohne-produktionsstillstand',
     title: 'Legacy-Modernisierung ohne Produktionsstillstand',
     date: '2026-05-19',
@@ -56,6 +83,33 @@ export const blogPostsDe: BlogPost[] = [
 ];
 
 export const blogPostsEn: BlogPost[] = [
+  {
+    slug: 'from-lobster-data-to-sap-adjacent-integration-engineering',
+    title: 'From Lobster Data to SAP-Adjacent Integration Engineering',
+    date: '2026-05-17',
+    readingTime: '8 min',
+    summary:
+      'How existing integration practice can be expanded toward SAP-adjacent engineering roles without overstating experience.',
+    tags: ['SAP', 'Lobster Data', 'Career Path'],
+  },
+  {
+    slug: 'lobster-data-mapping-and-validation-in-production',
+    title: 'Lobster Data in Practice: Mapping and Validation in Production',
+    date: '2026-05-17',
+    readingTime: '8 min',
+    summary:
+      'Practical overview of structuring mapping, routing, and validation logic in Lobster Data for stable integration operations.',
+    tags: ['Lobster Data', 'Mapping', 'Operations'],
+  },
+  {
+    slug: 'data-quality-validation-before-processing',
+    title: 'Data Quality in Integrations: Validation Before Processing',
+    date: '2026-05-26',
+    readingTime: '7 min',
+    summary:
+      'Why pre-processing validation reduces downstream incidents and improves operational stability across heterogeneous data sources.',
+    tags: ['Data Quality', 'Validation', 'Integration'],
+  },
   {
     slug: 'legacy-modernization-without-production-downtime',
     title: 'Legacy Modernization Without Production Downtime',

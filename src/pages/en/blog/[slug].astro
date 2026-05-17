@@ -5,6 +5,29 @@ import { blogPostsEn } from '../../../data/blog';
 type ContentMap = Record<string, string[]>;
 
 const contentBySlug: ContentMap = {
+  'from-lobster-data-to-sap-adjacent-integration-engineering': [
+    'Moving toward SAP-adjacent integration roles works best through proven transferability, not buzzwords. Existing Lobster Data integration practice provides that foundation.',
+    'Engineers who already own mapping logic, validation rules, routing paths, and production error classes bring core capabilities required in ERP-centered integration contexts.',
+    'The next step is targeted progression through real interface patterns, not a theoretical all-at-once jump. The key is transferring known integration principles to SAP-adjacent data and process flows.',
+    'For recruiters and teams, transparency matters: what is production experience today, and what is structured skill expansion. This distinction increases credibility and makes growth potential concrete.',
+    'In practice, this path works when learning and delivery run in parallel: stable operational contribution in the current stack plus systematic expansion toward ERP integration patterns.',
+    'The outcome is clear positioning: no inflated claims, but a professional, evidence-based transition path toward SAP-oriented integration engineering.',
+  ],
+  'lobster-data-mapping-and-validation-in-production': [
+    'In multi-system integration environments, Lobster Data is most effective when mapping, routing, and validation are designed as one operational model rather than isolated tasks.',
+    'A common failure pattern in long-grown flows is blurred responsibility boundaries. Business transformations, technical checks, and error handling get mixed, which makes process paths harder to reason about.',
+    'A reliable baseline starts with explicit mapping contracts: required fields, accepted formats, defaulting rules, and clear conditions for rejecting records intentionally.',
+    'On top of that, error classification must be explicit. Not every incident is critical. Technical format errors, business plausibility violations, and temporary target-side failures should follow different handling paths.',
+    'Operational quality is visible in diagnosis speed. Structured logs, traceable processing stages, and prioritized escalation rules reduce troubleshooting time significantly.',
+    'The core value is stability under load: integration processes remain controllable, rework becomes predictable, and changes can be rolled out incrementally without destabilizing live operations.',
+  ],
+  'data-quality-validation-before-processing': [
+    'In many integration projects, incidents do not start in business logic. They start at the ingestion edge where source payloads differ in format, required fields, or type consistency.',
+    'The highest-leverage control is explicit validation before processing. In practice, this means structural checks, business plausibility rules, and clear error classes with actionable feedback.',
+    'Without that separation, failure modes get mixed together. Teams see errors but cannot quickly isolate whether the issue originates in the source, transformation layer, or target system.',
+    'A reliable validation model uses explicit states: accept, reject, or quarantine for manual clarification. This keeps the main process stable while problematic records are handled in a controlled path.',
+    'Operationally, this usually results in fewer escalations, shorter diagnosis cycles, and more consistent downstream workflows. The key is not maximum complexity but a rule set that stays maintainable over time.',
+  ],
   'legacy-modernization-without-production-downtime': [
     'Many legacy modernization efforts fail not because of technology, but because of oversized changes at the wrong time. Once critical workflows are modified all at once, operational risk rises disproportionately.',
     'A durable approach starts with clear sequencing: stabilize critical paths first, improve observability second, and only then expand functionality. This keeps production impact under control.',
