@@ -13,7 +13,11 @@ const primaryMailHref = `mailto:${profile.email}`;
   <div class="cta-row">
     <a class="btn btn-primary" href={primaryMailHref}>Send E-Mail</a>
     <a class="btn btn-secondary" href={cvMailHref}>Request CV</a>
-    {profile.linkedinUrl && <a class="text-link" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>}
+    {profile.linkedinUrl && (
+      <a class="btn btn-secondary" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
+        LinkedIn Profile
+      </a>
+    )}
   </div>
 
   <div class="grid grid-2">
@@ -24,7 +28,7 @@ const primaryMailHref = `mailto:${profile.email}`;
     </article>
 
     <article class="card">
-      <h3>Delivery Model</h3>
+      <h3>Collaboration Model</h3>
       <p>Remote or hybrid execution with transparent milestones and clearly prioritized work packages.</p>
       <p class="muted">Primary focus: maintainable implementation and production-grade reliability.</p>
     </article>

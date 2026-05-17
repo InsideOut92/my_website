@@ -1,80 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { blogPostsEn } from '../../../data/blog';
-
-type ContentMap = Record<string, string[]>;
-
-const contentBySlug: ContentMap = {
-  'automation-in-existing-systems-start-small-roll-out-stable': [
-    'Automation in existing environments often fails not because of tooling, but because of rollout strategy. Switching too many process steps at once increases operational risk.',
-    'A resilient approach starts with one clearly scoped recurring workflow. Stabilize it first, automate it second, and only then expand to adjacent process segments.',
-    'Execution needs a traceable control chain: deterministic input validation, explicit error classes, structured logging, and a fallback path for exceptional cases.',
-    'In live production, reversibility is critical. Every automation increment should be rolled back without major intervention if surrounding processes react unexpectedly.',
-    'This model creates iterative value: less manual routine work, lower error load in standard operations, and better day-to-day planning reliability.',
-    'The main success factor is disciplined expansion: start small, run stable, document clearly, then automate the next segment.',
-  ],
-  'interface-monitoring-which-signals-matter-in-operations': [
-    'Many integration landscapes monitor technical errors first. For stable operations, this is not enough because critical process deviations often appear before hard system failures.',
-    'A resilient monitoring model separates at least three layers: transport signals (delivery and response status), processing quality (validation errors per data type), and process impact (queue buildup or delayed downstream actions).',
-    'Early indicators are especially valuable: rising retry rates, growing manual rework share, or unusual latency distribution. These signals often expose instability hours before a visible outage.',
-    'Operationally, prioritization is key. Not every warning is an incident. Alerts should be ranked by business impact and blast radius so teams react to critical process paths first.',
-    'A strong escalation model combines technical and functional perspectives: who responds to which class of failure, what context is required, and when ownership is handed over.',
-    'The outcome is not only faster response, but better control. Monitoring evolves from an alarm channel into a steering instrument for stable and predictable integration operations.',
-  ],
-  'from-lobster-data-to-sap-adjacent-integration-engineering': [
-    'Moving toward SAP-adjacent integration roles works best through proven transferability, not buzzwords. Existing Lobster Data integration practice provides that foundation.',
-    'Engineers who already own mapping logic, validation rules, routing paths, and production error classes bring core capabilities required in ERP-centered integration contexts.',
-    'The next step is targeted progression through real interface patterns, not a theoretical all-at-once jump. The key is transferring known integration principles to SAP-adjacent data and process flows.',
-    'For recruiters and teams, transparency matters: what is production experience today, and what is structured skill expansion. This distinction increases credibility and makes growth potential concrete.',
-    'In practice, this path works when learning and delivery run in parallel: stable operational contribution in the current stack plus systematic expansion toward ERP integration patterns.',
-    'The outcome is clear positioning: no inflated claims, but a professional, evidence-based transition path toward SAP-oriented integration engineering.',
-  ],
-  'lobster-data-mapping-and-validation-in-production': [
-    'In multi-system integration environments, Lobster Data is most effective when mapping, routing, and validation are designed as one operational model rather than isolated tasks.',
-    'A common failure pattern in long-grown flows is blurred responsibility boundaries. Business transformations, technical checks, and error handling get mixed, which makes process paths harder to reason about.',
-    'A reliable baseline starts with explicit mapping contracts: required fields, accepted formats, defaulting rules, and clear conditions for rejecting records intentionally.',
-    'On top of that, error classification must be explicit. Not every incident is critical. Technical format errors, business plausibility violations, and temporary target-side failures should follow different handling paths.',
-    'Operational quality is visible in diagnosis speed. Structured logs, traceable processing stages, and prioritized escalation rules reduce troubleshooting time significantly.',
-    'The core value is stability under load: integration processes remain controllable, rework becomes predictable, and changes can be rolled out incrementally without destabilizing live operations.',
-  ],
-  'data-quality-validation-before-processing': [
-    'In many integration projects, incidents do not start in business logic. They start at the ingestion edge where source payloads differ in format, required fields, or type consistency.',
-    'The highest-leverage control is explicit validation before processing. In practice, this means structural checks, business plausibility rules, and clear error classes with actionable feedback.',
-    'Without that separation, failure modes get mixed together. Teams see errors but cannot quickly isolate whether the issue originates in the source, transformation layer, or target system.',
-    'A reliable validation model uses explicit states: accept, reject, or quarantine for manual clarification. This keeps the main process stable while problematic records are handled in a controlled path.',
-    'Operationally, this usually results in fewer escalations, shorter diagnosis cycles, and more consistent downstream workflows. The key is not maximum complexity but a rule set that stays maintainable over time.',
-  ],
-  'legacy-modernization-without-production-downtime': [
-    'Many legacy modernization efforts fail not because of technology, but because of oversized changes at the wrong time. Once critical workflows are modified all at once, operational risk rises disproportionately.',
-    'A durable approach starts with clear sequencing: stabilize critical paths first, improve observability second, and only then expand functionality. This keeps production impact under control.',
-    'A small, repeatable change pattern works best: short iterations, explicit rollback paths, structured logging, and fixed acceptance criteria per step. This lowers uncertainty for both operations and business teams.',
-    'Technically, the leverage is often less about new tools and more about clear interfaces and ownership boundaries in code. Better module boundaries usually outperform large framework debates.',
-    'For decision-makers, the key point is that modernization is not a one-off project. It is a steering process where visible risk and measurable progress enable sustained delivery speed without instability.',
-  ],
-  'cloudflare-portfolio-migration-custom-domain': [
-    'This website initially ran as a simple project page on a default subdomain. For a professional presence, the next step was moving to a custom domain with a cleaner technical baseline.',
-    'The migration was treated as a quality initiative, not just a DNS switch. The goal was to keep user flow, indexing behavior, and future maintainability stable during and after the move.',
-    'Core implementation decisions included consistent canonical URLs, hreflang mapping for German and English pages, reliable sitemap generation, and robots.txt aligned with the production domain.',
-    'In parallel, delivery was hardened with response-level security headers, predictable URL structure, and structured data for key pages and blog articles.',
-    'Content strategy was also adjusted from generic profile wording to engineering-style case patterns. Priority was placed on problem, solution, and result framing instead of broad keyword lists.',
-    'The outcome is not a one-off redesign but a scalable base: technically consistent, clearly structured across languages, and ready for further high-signal technical writing for recruiters and clients.',
-  ],
-  'designing-production-grade-api-integrations': [
-    'Most integration failures are not caused by missing features. They are caused by unclear operational behavior when calls timeout, dependencies degrade, or payloads are partially valid.',
-    'Production-grade interfaces need explicit contracts: clear error classes, idempotent writes, retry with backoff, and request correlation from edge to downstream services. This directly shortens diagnosis time.',
-    'Monitoring should include business outcomes, not only transport status. Track success rates per message type, processing latency distribution, and queue pressure to detect operational drift before incidents escalate.',
-  ],
-  'data-mapping-without-fragility': [
-    'Data mapping is often treated as a simple transformation task. In practice, it is a contract between business semantics and technical representation.',
-    'A robust setup validates in three layers: structure, business plausibility, and technical constraints. Each validation layer should return actionable feedback for both operations and domain owners.',
-    'Versioned mapping specifications are a strong leverage point. They make change impact explicit and reduce friction across teams when multiple source systems evolve independently.',
-  ],
-  'modernizing-legacy-systems-safely': [
-    'The highest risk in legacy modernization is usually not the old stack itself. It is uncontrolled change under delivery pressure.',
-    'A reliable approach separates stabilization, observability, and feature delivery. Start with measurable incident hotspots, then refactor in small, reversible steps around business-critical paths.',
-    'Early investment in targeted tests, predictable deployment routines, and traceable change logs lowers operational risk and restores delivery speed over time.',
-  ],
-};
+import { blogContentEn } from '../../../data/blog-content';
 
 export function getStaticPaths() {
   return blogPostsEn.map((post) => ({
@@ -84,7 +11,7 @@ export function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const articleContent = contentBySlug[post.slug] ?? [];
+const articleContent = blogContentEn[post.slug] ?? [];
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',

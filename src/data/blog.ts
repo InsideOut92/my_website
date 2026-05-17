@@ -11,7 +11,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'automatisierung-im-bestand-stabil-ausrollen',
     title: 'Automatisierung im Bestand: klein starten, stabil ausrollen',
-    date: '2026-05-17',
+    date: '2026-05-15',
     readingTime: '7 min',
     summary:
       'Wie wiederkehrende Betriebsaufgaben schrittweise automatisiert werden können, ohne laufende Prozesse zu destabilisieren.',
@@ -29,7 +29,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'entwicklungspfad-von-lobster-data-zu-sap-naher-integration',
     title: 'Vom Lobster-Data-Schwerpunkt zur SAP-nahen Integrationsentwicklung',
-    date: '2026-05-17',
+    date: '2026-05-08',
     readingTime: '8 min',
     summary:
       'Wie sich vorhandene Integrationspraxis strukturiert in Richtung SAP-naher Entwicklungsrollen ausbauen lässt, ohne unhaltbare Erfahrungsclaims.',
@@ -38,7 +38,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'lobster-data-mapping-und-validierung-im-betrieb',
     title: 'Lobster Data in der Praxis: Mapping und Validierung im laufenden Betrieb',
-    date: '2026-05-17',
+    date: '2026-05-03',
     readingTime: '8 min',
     summary:
       'Praxisorientierter Überblick, wie Mapping-, Routing- und Validierungslogik in Lobster Data strukturiert werden kann, um Integrationsprozesse stabil zu betreiben.',
@@ -65,7 +65,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'cloudflare-migration-portfolio-domain',
     title: 'Portfolio-Migration auf Cloudflare: Von pages.dev zur eigenen Domain',
-    date: '2026-05-17',
+    date: '2026-04-28',
     readingTime: '8 min',
     summary:
       'Technische Fallstudie zur Migration auf eine eigene Domain mit Fokus auf SEO-Konsistenz, saubere Auslieferung und wartbare Basis.',
@@ -104,7 +104,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'automation-in-existing-systems-start-small-roll-out-stable',
     title: 'Automation in Existing Systems: Start Small, Roll Out Stable',
-    date: '2026-05-17',
+    date: '2026-05-15',
     readingTime: '7 min',
     summary:
       'How recurring operational tasks can be automated incrementally without destabilizing live production processes.',
@@ -122,7 +122,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'from-lobster-data-to-sap-adjacent-integration-engineering',
     title: 'From Lobster Data to SAP-Adjacent Integration Engineering',
-    date: '2026-05-17',
+    date: '2026-05-08',
     readingTime: '8 min',
     summary:
       'How existing integration practice can be expanded toward SAP-adjacent engineering roles without overstating experience.',
@@ -131,7 +131,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'lobster-data-mapping-and-validation-in-production',
     title: 'Lobster Data in Practice: Mapping and Validation in Production',
-    date: '2026-05-17',
+    date: '2026-05-03',
     readingTime: '8 min',
     summary:
       'Practical overview of structuring mapping, routing, and validation logic in Lobster Data for stable integration operations.',
@@ -158,7 +158,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'cloudflare-portfolio-migration-custom-domain',
     title: 'Portfolio Migration on Cloudflare: From pages.dev to a Custom Domain',
-    date: '2026-05-17',
+    date: '2026-04-28',
     readingTime: '8 min',
     summary:
       'Technical case study on moving to a custom domain with emphasis on SEO consistency, clean delivery, and maintainable structure.',

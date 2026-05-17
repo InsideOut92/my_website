@@ -1,50 +1,26 @@
-﻿<section class="section">
+﻿---
+import { additionalProjectsEn, selectedProjectsEn } from '../../data/projects';
+---
+<section class="section">
   <h2>Selected Projects</h2>
 
   <div class="grid grid-2 project-grid">
-    <article class="card project-card">
-      <h3>ERP Integration via Lobster Data</h3>
-      <p class="muted">Connecting heterogeneous systems through standardized mapping and routing flows.</p>
-      <div class="project-facts">
-        <p><strong>Problem</strong><span>Inconsistent structures between ERP and platform caused unreliable transfers.</span></p>
-        <p><strong>Solution</strong><span>Introduced strict mapping rules, field validation, and structured error handling in the integration flow.</span></p>
-        <p><strong>Result</strong><span>More stable data exchange, faster root-cause analysis, and fewer manual corrections.</span></p>
-        <p><strong>Impact</strong><span>The operational flow became more resilient and required significantly fewer manual interventions.</span></p>
-      </div>
-    </article>
-
-    <article class="card project-card">
-      <h3>Data Processing for Downstream Systems</h3>
-      <p class="muted">Python- and SQL-based preparation of heterogeneous data sources.</p>
-      <div class="project-facts">
-        <p><strong>Problem</strong><span>Source format differences produced inconsistent records in dependent systems.</span></p>
-        <p><strong>Solution</strong><span>Implemented transformation logic with checks for completeness, data types, and mandatory fields.</span></p>
-        <p><strong>Result</strong><span>Cleaner data quality, fewer correction loops, and more reliable downstream processing.</span></p>
-        <p><strong>Impact</strong><span>Business teams could rely on more consistent records and spot process deviations earlier.</span></p>
-      </div>
-    </article>
-
-    <article class="card project-card">
-      <h3>Automation of Repetitive Operational Tasks</h3>
-      <p class="muted">Containerized script execution and standardized operational procedures.</p>
-      <div class="project-facts">
-        <p><strong>Problem</strong><span>Repetitive manual work consumed time and increased operational error risk.</span></p>
-        <p><strong>Solution</strong><span>Containerized script workflows, centralized configuration, and repeatable run rules.</span></p>
-        <p><strong>Result</strong><span>Predictable execution, reduced error rates, and shorter processing times.</span></p>
-        <p><strong>Impact</strong><span>Routine operations became more predictable and team capacity shifted to higher-value work.</span></p>
-      </div>
-    </article>
-
-    <article class="card project-card">
-      <h3>Monitoring and Interface Incident Analysis</h3>
-      <p class="muted">Structured logs, prioritized alerts, and traceable failure paths.</p>
-      <div class="project-facts">
-        <p><strong>Problem</strong><span>Interface failures were detected late and troubleshooting cycles were too long.</span></p>
-        <p><strong>Solution</strong><span>Implemented unified logging, alert priorities, and clear escalation procedures.</span></p>
-        <p><strong>Result</strong><span>Earlier detection, faster diagnosis, and noticeably shorter outage windows.</span></p>
-        <p><strong>Impact</strong><span>Incidents became more transparent to handle and escalation was processed in a more structured way.</span></p>
-      </div>
-    </article>
+    {
+      selectedProjectsEn.map((project) => (
+        <article class="card project-card">
+          <h3>{project.title}</h3>
+          <p class="muted">{project.subtitle}</p>
+          <div class="project-facts">
+            {project.facts.map((fact) => (
+              <p>
+                <strong>{fact.label}</strong>
+                <span>{fact.text}</span>
+              </p>
+            ))}
+          </div>
+        </article>
+      ))
+    }
   </div>
 </section>
 
@@ -53,34 +29,23 @@
     <h2>Additional Project Experience</h2>
   </div>
   <div class="grid grid-2 project-grid">
-    <article class="card project-compact">
-      <h3>Operationally Stable Mapping Flows with Lobster Data</h3>
-      <p class="muted">Rule-based data flows with clear error classes and traceable correction paths.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Data Migration During System Transition</h3>
-      <p class="muted">Legacy data cleanup and reliable mapping into the target system.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Standardized Import and Export Pipelines</h3>
-      <p class="muted">Unified file standards with pre-processing validation gates.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Self-hosted Server Infrastructure</h3>
-      <p class="muted">Containerized services, reverse proxy, and automated backups.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Central Device Management System</h3>
-      <p class="muted">Custom-built MDM solution for heterogeneous device environments.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Modernization of a Long-Grown Web Application</h3>
-      <p class="muted">Structured evolution of a PHP/MySQL system that had grown over many years.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Interactive Real-Time Map View</h3>
-      <p class="muted">Leaflet-based live map display with automatic refresh.</p>
-    </article>
+    {
+      additionalProjectsEn.map((project) => (
+        <article class="card project-compact">
+          <h3>{project.title}</h3>
+          <p class="muted">{project.subtitle}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="notice">
+    <p>
+      Client names and internal metrics are intentionally omitted due to confidentiality constraints.
+      On request, I can share anonymized flow examples and architecture sketches to discuss the technical approach.
+    </p>
   </div>
 </section>
 

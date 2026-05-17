@@ -1,50 +1,26 @@
+---
+import { additionalProjectsDe, selectedProjectsDe } from '../data/projects';
+---
+
 <section class="section">
   <h2>Ausgewählte Projekte</h2>
-
   <div class="grid grid-2 project-grid">
-    <article class="card project-card">
-      <h3>ERP-Integration über Lobster Data</h3>
-      <p class="muted">Anbindung heterogener Systeme über standardisierte Mapping- und Routing-Strecken.</p>
-      <div class="project-facts">
-        <p><strong>Problem</strong><span>Uneinheitliche Datenstrukturen zwischen ERP und Plattform führten zu fehlerhaften Übertragungen.</span></p>
-        <p><strong>Lösung</strong><span>Verbindliches Mapping, Validierungsregeln und strukturierte Fehlerbehandlung in der Integrationsstrecke eingeführt.</span></p>
-        <p><strong>Ergebnis</strong><span>Stabilerer Datenaustausch, bessere Nachvollziehbarkeit bei Fehlerfällen und weniger manuelle Nachkorrekturen.</span></p>
-        <p><strong>Wirkung</strong><span>Der Prozess blieb im Tagesbetrieb robuster und erforderte deutlich weniger operative Eingriffe.</span></p>
-      </div>
-    </article>
-
-    <article class="card project-card">
-      <h3>Datenverarbeitung für Folgeprozesse</h3>
-      <p class="muted">Python- und SQL-basierte Aufbereitung heterogener Datenquellen.</p>
-      <div class="project-facts">
-        <p><strong>Problem</strong><span>Unterschiedliche Quellformate führten zu inkonsistenten Datensätzen in nachgelagerten Systemen.</span></p>
-        <p><strong>Lösung</strong><span>Standardisierte Transformationslogik mit Prüfregeln für Vollständigkeit, Datentypen und Pflichtfelder umgesetzt.</span></p>
-        <p><strong>Ergebnis</strong><span>Bereinigte Datenbasis, weniger Korrekturschleifen im Tagesgeschäft und verlässlichere Folgeprozesse.</span></p>
-        <p><strong>Wirkung</strong><span>Fachbereiche konnten auf konsistentere Daten vertrauen und Prozessabweichungen früher erkennen.</span></p>
-      </div>
-    </article>
-
-    <article class="card project-card">
-      <h3>Automatisierung wiederkehrender Betriebsaufgaben</h3>
-      <p class="muted">Containerisierte Skriptabläufe und standardisierte Prozessschritte.</p>
-      <div class="project-facts">
-        <p><strong>Problem</strong><span>Wiederkehrende manuelle Aufgaben verursachten Zeitverlust und erhöhte Fehleranfälligkeit.</span></p>
-        <p><strong>Lösung</strong><span>Skriptbasierte Abläufe containerisiert, zentral konfiguriert und mit klaren Ausführungsregeln versehen.</span></p>
-        <p><strong>Ergebnis</strong><span>Wiederholbare Prozesse, geringere Fehlerquote und kürzere Durchlaufzeiten im Betrieb.</span></p>
-        <p><strong>Wirkung</strong><span>Operative Routinen wurden planbarer und Teamkapazität konnte auf höherwertige Aufgaben verlagert werden.</span></p>
-      </div>
-    </article>
-
-    <article class="card project-card">
-      <h3>Monitoring und Fehleranalyse für Schnittstellen</h3>
-      <p class="muted">Strukturierte Logs, Warnmeldungen und nachvollziehbare Fehlerpfade.</p>
-      <div class="project-facts">
-        <p><strong>Problem</strong><span>Schnittstellenfehler wurden oft erst spät erkannt und die Ursachenanalyse dauerte zu lange.</span></p>
-        <p><strong>Lösung</strong><span>Einheitliches Logging, priorisierte Alerts und klar definierte Eskalationspfade implementiert.</span></p>
-        <p><strong>Ergebnis</strong><span>Frühere Fehlererkennung, schnellere Ursachenanalyse und verkürzte Ausfallzeiten.</span></p>
-        <p><strong>Wirkung</strong><span>Störungen blieben transparenter beherrschbar und Eskalationen konnten strukturierter abgearbeitet werden.</span></p>
-      </div>
-    </article>
+    {
+      selectedProjectsDe.map((project) => (
+        <article class="card project-card">
+          <h3>{project.title}</h3>
+          <p class="muted">{project.subtitle}</p>
+          <div class="project-facts">
+            {project.facts.map((fact) => (
+              <p>
+                <strong>{fact.label}</strong>
+                <span>{fact.text}</span>
+              </p>
+            ))}
+          </div>
+        </article>
+      ))
+    }
   </div>
 </section>
 
@@ -53,34 +29,24 @@
     <h2>Weitere Projekterfahrung</h2>
   </div>
   <div class="grid grid-2 project-grid">
-    <article class="card project-compact">
-      <h3>Betriebsstabile Mapping-Strecken mit Lobster Data</h3>
-      <p class="muted">Regelbasierte Datenflüsse mit klaren Fehlerklassen und nachvollziehbarer Nachbearbeitung.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Datenmigration bei Systemwechsel</h3>
-      <p class="muted">Bereinigung von Altdaten und verlässliches Mapping ins Zielsystem.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Standardisierung von Import- und Export-Prozessen</h3>
-      <p class="muted">Dateiformate vereinheitlicht und Validierung vor der Verarbeitung etabliert.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Self-hosted Server-Infrastruktur</h3>
-      <p class="muted">Containerisierte Dienste, Reverse Proxy und automatisiertes Backup.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Zentrales Device-Management-System</h3>
-      <p class="muted">Eigenentwicklung einer MDM-Lösung für heterogene Gerätelandschaften.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Modernisierung einer gewachsenen Webanwendung</h3>
-      <p class="muted">Strukturierte Weiterentwicklung eines jahrelang gewachsenen PHP/MySQL-Systems.</p>
-    </article>
-    <article class="card project-compact">
-      <h3>Interaktive Echtzeit-Kartenansicht</h3>
-      <p class="muted">Leaflet.js-basierte Live-Darstellung mit automatischer Aktualisierung.</p>
-    </article>
+    {
+      additionalProjectsDe.map((project) => (
+        <article class="card project-compact">
+          <h3>{project.title}</h3>
+          <p class="muted">{project.subtitle}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="notice">
+    <p>
+      Aus Vertraulichkeitsgründen nenne ich keine Kundennamen oder internen Kennzahlen.
+      Auf Anfrage teile ich den technischen Ansatz mit anonymisierten Ablaufbeispielen und
+      Architektur-Skizzen.
+    </p>
   </div>
 </section>
 
