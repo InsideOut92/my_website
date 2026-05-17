@@ -1,7 +1,8 @@
 import type { APIRoute } from 'astro';
 import { PAGE_ROUTES, type PageKey } from '../utils/i18n';
+import { blogPostsDe, blogPostsEn } from '../data/blog';
 
-const PAGE_KEYS: PageKey[] = ['home', 'skills', 'projects', 'contact', 'imprint', 'privacy'];
+const PAGE_KEYS: PageKey[] = ['home', 'blog', 'skills', 'projects', 'contact', 'imprint', 'privacy'];
 const ROUTES = PAGE_KEYS.flatMap((key) => {
   const route = PAGE_ROUTES[key];
   return [
@@ -10,6 +11,11 @@ const ROUTES = PAGE_KEYS.flatMap((key) => {
   ];
 });
 
+const BLOG_ROUTES = [
+  ...blogPostsDe.map((post) => ({ loc: `/blog/${post.slug}` })),
+  ...blogPostsEn.map((post) => ({ loc: `/en/blog/${post.slug}` })),
+];
+
 export const GET: APIRoute = ({ request }) => {
   const configuredSite =
     process.env.SITE_URL ?? (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined);
@@ -17,7 +23,7 @@ export const GET: APIRoute = ({ request }) => {
   const origin = siteUrl ?? new URL(request.url).origin;
   const lastmod = new Date().toISOString().split('T')[0];
 
-  const urls = ROUTES.map((route) => {
+  const localizedUrls = ROUTES.map((route) => {
     const loc = `${origin}${route.loc}`;
     const de = `${origin}${route.de}`;
     const en = `${origin}${route.en}`;
@@ -31,10 +37,16 @@ export const GET: APIRoute = ({ request }) => {
   </url>`;
   }).join('\n');
 
+  const blogUrls = BLOG_ROUTES.map((route) => `  <url>
+    <loc>${origin}${route.loc}</loc>
+    <lastmod>${lastmod}</lastmod>
+  </url>`).join('\n');
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls}
+${localizedUrls}
+${blogUrls}
 </urlset>`;
 
   return new Response(xml, {

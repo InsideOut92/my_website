@@ -1,6 +1,7 @@
 ﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Contact from '../../components/en/Contact.astro';
+import WorkingPrinciples from '../../components/en/WorkingPrinciples.astro';
 ---
 <BaseLayout
   locale="en"
@@ -8,6 +9,15 @@ import Contact from '../../components/en/Contact.astro';
   description="Contact Patrick Scharf for support with API integrations, data workflows, and automation."
 >
   <main class="page" id="main-content">
+    <section class="page-intro">
+      <p class="eyebrow">Direct Contact</p>
+      <h1>Contact</h1>
+      <p class="muted">
+        A short project summary by email is enough to discuss scope, priorities, and a realistic
+        implementation path.
+      </p>
+    </section>
     <Contact />
+    <WorkingPrinciples />
   </main>
 </BaseLayout>

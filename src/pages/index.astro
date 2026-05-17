@@ -1,9 +1,11 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import Skills from '../components/Skills.astro';
-import Projects from '../components/Projects.astro';
-import Contact from '../components/Contact.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import Skills from "../components/Skills.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
+import BlogHighlights from "../components/BlogHighlights.astro";
+import ServiceProfile from "../components/ServiceProfile.astro";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -15,7 +17,7 @@ const structuredData = {
   address: {
     "@type": "PostalAddress",
     addressLocality: "Rimpar",
-    addressCountry: "DE"
+    addressCountry: "DE",
   },
   knowsAbout: [
     "API-Integration",
@@ -24,19 +26,26 @@ const structuredData = {
     "Automatisierung",
     "PHP",
     "Python",
-    "MySQL"
-  ]
+    "MySQL",
+  ],
 };
 ---
+
 <BaseLayout
-  title="Portfolio"
-  description="Patrick Scharf entwickelt stabile Schnittstellen zwischen Systemen und automatisiert Datenprozesse für belastbare Unternehmensabläufe."
+  title="Softwareentwicklung für Integration und stabile Datenprozesse"
+  description="Patrick Scharf entwickelt und stabilisiert Integrationen, Datenprozesse und gewachsene Anwendungen für belastbare Unternehmensabläufe."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
   <main class="page" id="main-content">
     <Hero />
-    <Skills />
+    <ServiceProfile />
     <Projects />
+    <BlogHighlights />
+    <Skills />
     <Contact />
   </main>
 </BaseLayout>

@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { blogPostsDe } from "../data/blog";
+---
+
+<BaseLayout
+  title="Blog"
+  description="Praxisbeiträge zu API-Integration, Datenprozessen und stabiler Softwareentwicklung im Unternehmenskontext."
+>
+  <main class="page" id="main-content">
+    <section class="page-intro">
+      <p class="eyebrow">Wissen aus der Praxis</p>
+      <h1>Blog</h1>
+      <p class="lead muted">
+        Konkrete Erfahrungen aus Integrationsprojekten, Datenprozessen und
+        Modernisierung im Bestand.
+      </p>
+    </section>
+    <section class="grid grid-2">
+      {
+        blogPostsDe.map((post) => (
+          <article class="card post-card">
+            <p class="muted post-meta">
+              <time datetime={post.date}>{post.date}</time>
+              <span>·</span>
+              <span>{post.readingTime}</span>
+            </p>
+            <h2>
+              <a href={`/blog/${post.slug}`}>{post.title}</a>
+            </h2>
+            <p>{post.summary}</p>
+            <div class="tag-row">
+              {post.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </section>
+    <section class="section">
+      <div class="notice">
+        <p>
+          Sie möchten ein konkretes Integrations- oder Modernisierungsthema
+          besprechen?
+          <a href="/kontakt">Gespräch anfragen</a>
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

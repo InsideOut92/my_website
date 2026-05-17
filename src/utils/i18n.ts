@@ -2,6 +2,7 @@ export type Locale = 'de' | 'en';
 
 export type PageKey =
   | 'home'
+  | 'blog'
   | 'skills'
   | 'projects'
   | 'contact'
@@ -10,6 +11,7 @@ export type PageKey =
 
 export const PAGE_ROUTES: Record<PageKey, Record<Locale, string>> = {
   home: { de: '/', en: '/en' },
+  blog: { de: '/blog', en: '/en/blog' },
   skills: { de: '/skills', en: '/en/skills' },
   projects: { de: '/projekte', en: '/en/projects' },
   contact: { de: '/kontakt', en: '/en/contact' },
@@ -20,6 +22,7 @@ export const PAGE_ROUTES: Record<PageKey, Record<Locale, string>> = {
 const NAV_LABELS: Record<Locale, Record<PageKey, string>> = {
   de: {
     home: 'Start',
+    blog: 'Blog',
     skills: 'Skills',
     projects: 'Projekte',
     contact: 'Kontakt',
@@ -28,6 +31,7 @@ const NAV_LABELS: Record<Locale, Record<PageKey, string>> = {
   },
   en: {
     home: 'Home',
+    blog: 'Blog',
     skills: 'Skills',
     projects: 'Projects',
     contact: 'Contact',
@@ -92,6 +96,7 @@ export function getLocalizedPath(path: string, targetLocale: Locale): string {
 
 export function getNavLinks(locale: Locale): Array<{ href: string; label: string }> {
   return [
+    { href: PAGE_ROUTES.blog[locale], label: NAV_LABELS[locale].blog },
     { href: PAGE_ROUTES.skills[locale], label: NAV_LABELS[locale].skills },
     { href: PAGE_ROUTES.projects[locale], label: NAV_LABELS[locale].projects },
     { href: PAGE_ROUTES.contact[locale], label: NAV_LABELS[locale].contact },

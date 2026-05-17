@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { blogPostsEn } from '../../data/blog';
+---
+<BaseLayout
+  locale="en"
+  title="Blog"
+  description="Hands-on articles on API integration, data workflows, and resilient software delivery in business environments."
+>
+  <main class="page" id="main-content">
+    <section class="page-intro">
+      <p class="eyebrow">Practical Engineering Notes</p>
+      <h1>Blog</h1>
+      <p class="lead muted">
+        Concrete lessons from integration projects, data workflows, and modernization work in existing systems.
+      </p>
+    </section>
+    <section class="grid grid-2">
+      {
+        blogPostsEn.map((post) => (
+          <article class="card post-card">
+            <p class="muted post-meta">
+              <time datetime={post.date}>{post.date}</time>
+              <span>·</span>
+              <span>{post.readingTime}</span>
+            </p>
+            <h2>
+              <a href={`/en/blog/${post.slug}`}>{post.title}</a>
+            </h2>
+            <p>{post.summary}</p>
+            <div class="tag-row">
+              {post.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          </article>
+        ))
+      }
+    </section>
+    <section class="section">
+      <div class="notice">
+        <p>
+          Want to discuss a specific integration or modernization topic?
+          <a href="/en/contact">Request an intro call</a>
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,21 +1,24 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Contact from '../components/Contact.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Contact from "../components/Contact.astro";
+import WorkingPrinciples from "../components/WorkingPrinciples.astro";
 ---
+
 <BaseLayout
   title="Kontakt"
-  description="Kontakt zu Patrick Scharf fuer technische Unterstützung bei API-Integrationen, Datenprozessen und Automatisierung."
+  description="Kontakt zu Patrick Scharf für technische Unterstützung bei API-Integrationen, Datenprozessen und Automatisierung."
 >
   <main class="page" id="main-content">
     <section class="page-intro">
       <p class="eyebrow">Direkter Austausch</p>
       <h1>Kontaktaufnahme</h1>
       <p class="muted">
-        Kurze Projektbeschreibung per E-Mail reicht aus. Danach klären wir Umfang,
-        Umsetzungsprioritäten und nächste Schritte.
+        Kurze Projektbeschreibung per E-Mail reicht aus. Danach klären wir
+        Umfang, Umsetzungsprioritäten und nächste Schritte.
       </p>
     </section>
 
     <Contact />
+    <WorkingPrinciples />
   </main>
 </BaseLayout>

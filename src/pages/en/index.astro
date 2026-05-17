@@ -4,6 +4,8 @@ import Hero from '../../components/en/Hero.astro';
 import Skills from '../../components/en/Skills.astro';
 import Projects from '../../components/en/Projects.astro';
 import Contact from '../../components/en/Contact.astro';
+import BlogHighlights from '../../components/en/BlogHighlights.astro';
+import ServiceProfile from '../../components/en/ServiceProfile.astro';
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -30,14 +32,16 @@ const structuredData = {
 ---
 <BaseLayout
   locale="en"
-  title="Portfolio"
-  description="Patrick Scharf builds stable integrations between business systems and automates data workflows."
+  title="Software Engineering for Integration and Stable Data Workflows"
+  description="Patrick Scharf delivers and stabilizes integrations, data workflows, and existing business applications for reliable operations."
 >
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <main class="page" id="main-content">
     <Hero />
-    <Skills />
+    <ServiceProfile />
     <Projects />
+    <BlogHighlights />
+    <Skills />
     <Contact />
   </main>
 </BaseLayout>

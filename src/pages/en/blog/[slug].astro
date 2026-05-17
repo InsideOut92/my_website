@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { blogPostsEn } from '../../../data/blog';
+
+type ContentMap = Record<string, string[]>;
+
+const contentBySlug: ContentMap = {
+  'designing-production-grade-api-integrations': [
+    'Most integration failures are not caused by missing features. They are caused by unclear operational behavior when calls timeout, dependencies degrade, or payloads are partially valid.',
+    'Production-grade interfaces need explicit contracts: clear error classes, idempotent writes, retry with backoff, and request correlation from edge to downstream services. This directly shortens diagnosis time.',
+    'Monitoring should include business outcomes, not only transport status. Track success rates per message type, processing latency distribution, and queue pressure to detect operational drift before incidents escalate.',
+  ],
+  'data-mapping-without-fragility': [
+    'Data mapping is often treated as a simple transformation task. In practice, it is a contract between business semantics and technical representation.',
+    'A robust setup validates in three layers: structure, business plausibility, and technical constraints. Each validation layer should return actionable feedback for both operations and domain owners.',
+    'Versioned mapping specifications are a strong leverage point. They make change impact explicit and reduce friction across teams when multiple source systems evolve independently.',
+  ],
+  'modernizing-legacy-systems-safely': [
+    'The highest risk in legacy modernization is usually not the old stack itself. It is uncontrolled change under delivery pressure.',
+    'A reliable approach separates stabilization, observability, and feature delivery. Start with measurable incident hotspots, then refactor in small, reversible steps around business-critical paths.',
+    'Early investment in targeted tests, predictable deployment routines, and traceable change logs lowers operational risk and restores delivery speed over time.',
+  ],
+};
+
+export function getStaticPaths() {
+  return blogPostsEn.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const articleContent = contentBySlug[post.slug] ?? [];
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  datePublished: post.date,
+  dateModified: post.date,
+  inLanguage: 'en-US',
+  author: {
+    '@type': 'Person',
+    name: 'Patrick Scharf',
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Patrick Scharf',
+  },
+  description: post.summary,
+  ...(Astro.site ? { mainEntityOfPage: new URL(`/en/blog/${post.slug}`, Astro.site).toString() } : {}),
+};
+---
+<BaseLayout locale="en" title={post.title} description={post.summary}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <main class="page" id="main-content">
+    <article class="panel article">
+      <p class="muted post-meta">
+        <time datetime={post.date}>{post.date}</time>
+        <span>·</span>
+        <span>{post.readingTime}</span>
+      </p>
+      <h1>{post.title}</h1>
+      <p class="lead muted">{post.summary}</p>
+      <div class="tag-row">
+        {post.tags.map((tag: string) => <span class="tag">{tag}</span>)}
+      </div>
+      <div class="article-content">
+        {articleContent.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <p class="article-backlink">
+        <a href="/en/blog">Back to blog overview</a>
+      </p>
+    </article>
+  </main>
+</BaseLayout>

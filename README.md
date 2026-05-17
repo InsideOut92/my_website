@@ -1,45 +1,48 @@
-# Astro Starter Kit: Basics
+# PS Software Solutions Website
 
-```sh
-npm create astro@latest -- --template basics
+Zweisprachige Portfolio-Website (Deutsch/Englisch) auf Basis von Astro.
+
+## Voraussetzungen
+
+- Node.js `>=22.12.0`
+- npm `>=10`
+
+## Lokale Entwicklung
+
+1. Abhängigkeiten installieren:
+   - `npm ci`
+2. Entwicklungsserver starten:
+   - `npm run dev`
+3. Produktionsbuild prüfen:
+   - `npm run build`
+4. Typen/Projektcheck:
+   - `npm run check`
+
+## Wichtige Umgebungsvariable
+
+In `.env`:
+
+```bash
+SITE_URL=https://ps-software-solutions.com
 ```
 
+Diese URL wird für Canonical-URLs, `sitemap.xml` und `robots.txt` genutzt.
 
-## 🚀 Project Structure
+## Deployment auf Cloudflare Pages
 
-Inside of your Astro project, you'll see the following folders and files:
+Build-Konfiguration:
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Node version: `22.12.0` oder neuer
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Empfohlen:
+- `SITE_URL` als Environment Variable in Cloudflare Pages setzen auf:
+  - `https://ps-software-solutions.com`
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Inhaltliche Struktur
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-
-
-Feel free to check [full documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- Deutsche Seiten unter `/`
+- Englische Seiten unter `/en`
+- Blog:
+  - Deutsch: `/blog`
+  - Englisch: `/en/blog`

@@ -1,21 +1,24 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const lastUpdated = '03.05.2026';
+const lastUpdated = "17.05.2026";
 ---
+
 <BaseLayout
   title="Impressum"
-  description="Impressum mit Angaben gemäß Paragraph 5 DDG sowie weiteren rechtlichen Pflichtinformationen."
+  description="Impressum mit Anbieterkennzeichnung für diesen privaten Webauftritt."
 >
   <main class="page" id="main-content">
     <section class="page-intro">
       <p class="eyebrow">Rechtliche Angaben</p>
       <h1>Impressum</h1>
-      <p class="muted">Angaben gemäß Paragraph 5 Digitale-Dienste-Gesetz (DDG).</p>
+      <p class="muted">
+        Anbieterkennzeichnung für diesen privaten Webauftritt.
+      </p>
     </section>
 
     <section class="card legal-card">
-      <h2>1. Diensteanbieter</h2>
+      <h2>1. Anbieter dieser Website</h2>
       <address>
         Patrick Scharf<br />
         Am Liedlein 3b<br />
@@ -26,40 +29,34 @@ const lastUpdated = '03.05.2026';
 
     <section class="card legal-card">
       <h2>2. Kontakt</h2>
-      <p>E-Mail: <a href="mailto:Softwareentwickler@tutamail.com">Softwareentwickler@tutamail.com</a></p>
+      <p>
+        E-Mail: <a href="mailto:Softwareentwickler@tutamail.com"
+          >Softwareentwickler@tutamail.com</a>
+      </p>
     </section>
 
     <section class="card legal-card">
       <h2>3. Umsatzsteuer-ID</h2>
-      <p>Umsatzsteuer-Identifikationsnummer gemäß Paragraph 27a Umsatzsteuergesetz: -</p>
-      <p>Wirtschafts-Identifikationsnummer gemäß Paragraph 139c AO: -</p>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß Paragraph 27a
+        Umsatzsteuergesetz: nicht vorhanden.
+      </p>
+      <p>
+        Wirtschafts-Identifikationsnummer gemäß Paragraph 139c AO: nicht
+        vorhanden.
+      </p>
     </section>
 
     <section class="card legal-card">
       <h2>4. Inhaltlich verantwortlich</h2>
-      <p>Verantwortlich gemäß Paragraph 18 Absatz 2 Medienstaatsvertrag (MStV):</p>
+      <p>
+        Verantwortlich gemäß Paragraph 18 Absatz 2 Medienstaatsvertrag (MStV):
+      </p>
       <address>
         Patrick Scharf<br />
         Am Liedlein 3b<br />
         97222 Rimpar
       </address>
-    </section>
-
-    <section class="card legal-card">
-      <h2>5. Verbraucherstreitbeilegung</h2>
-      <p>Hinweis gemäß Paragraph 36 Verbraucherstreitbeilegungsgesetz (VSBG):</p>
-      <p>
-        Wir sind nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer
-        Verbraucherschlichtungsstelle teilzunehmen.
-      </p>
-    </section>
-
-    <section class="card legal-card">
-      <h2>6. Hinweis zur ehemaligen EU-OS-Plattform</h2>
-      <p>
-        Die EU-Online-Streitbeilegungsplattform (OS-Plattform) wurde zum 20. Juli 2025 eingestellt.
-        Ein Link zur OS-Plattform ist seitdem nicht mehr erforderlich.
-      </p>
     </section>
 
     <p class="muted legal-meta">Stand dieser Seite: {lastUpdated}</p>

@@ -1,0 +1,31 @@
+---
+import { blogPostsDe } from '../data/blog';
+
+const latestPosts = blogPostsDe.slice(0, 3);
+---
+<section class="section" aria-labelledby="latest-insights-heading">
+  <div class="section-head">
+    <h2 id="latest-insights-heading">Fachbeiträge</h2>
+    <a class="text-link" href="/blog">Alle Beiträge</a>
+  </div>
+  <div class="grid grid-3">
+    {
+      latestPosts.map((post) => (
+        <article class="card post-card">
+          <p class="muted post-meta">
+            <time datetime={post.date}>{post.date}</time>
+            <span>·</span>
+            <span>{post.readingTime}</span>
+          </p>
+          <h3>
+            <a href={`/blog/${post.slug}`}>{post.title}</a>
+          </h3>
+          <p>{post.summary}</p>
+          <div class="tag-row">
+            {post.tags.map((tag) => <span class="tag">{tag}</span>)}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

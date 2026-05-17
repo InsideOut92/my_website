@@ -1,22 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const lastUpdated = '03.05.2026';
+const lastUpdated = '17.05.2026';
 ---
 <BaseLayout
   locale="en"
   title="Legal Notice"
-  description="Legal notice with provider details and legally required information."
+  description="Legal notice with provider details for this private website."
 >
   <main class="page" id="main-content">
     <section class="page-intro">
       <p class="eyebrow">Legal Information</p>
       <h1>Legal Notice</h1>
-      <p class="muted">Information according to Section 5 DDG.</p>
+      <p class="muted">Provider information for this private website.</p>
     </section>
 
     <section class="card legal-card">
-      <h2>1. Service Provider</h2>
+      <h2>1. Website Provider</h2>
       <address>
         Patrick Scharf<br />
         Am Liedlein 3b<br />
@@ -32,8 +32,8 @@ const lastUpdated = '03.05.2026';
 
     <section class="card legal-card">
       <h2>3. VAT ID</h2>
-      <p>VAT identification number according to Section 27a German VAT Act: -</p>
-      <p>Business identification number according to Section 139c AO: -</p>
+      <p>VAT identification number according to Section 27a German VAT Act: not available.</p>
+      <p>Business identification number according to Section 139c AO: not available.</p>
     </section>
 
     <section class="card legal-card">
@@ -44,23 +44,6 @@ const lastUpdated = '03.05.2026';
         Am Liedlein 3b<br />
         97222 Rimpar
       </address>
-    </section>
-
-    <section class="card legal-card">
-      <h2>5. Consumer Dispute Resolution</h2>
-      <p>Notice according to Section 36 VSBG:</p>
-      <p>
-        We are not willing and not obliged to participate in dispute resolution proceedings before a
-        consumer arbitration board.
-      </p>
-    </section>
-
-    <section class="card legal-card">
-      <h2>6. Notice on Former EU ODR Platform</h2>
-      <p>
-        The EU Online Dispute Resolution platform was discontinued on July 20, 2025. A link to the
-        platform is no longer required.
-      </p>
     </section>
 
     <p class="muted legal-meta">Last updated: {lastUpdated}</p>

@@ -1,0 +1,21 @@
+{
+  "name": "P.S. - Software Development",
+  "short_name": "PS Software",
+  "description": "Softwareentwicklung fuer Integrationen, Datenprozesse und stabile Unternehmensablaeufe.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060b15",
+  "theme_color": "#0f1a2a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
