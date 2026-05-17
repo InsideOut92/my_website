@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { blogPostsDe } from "../data/blog";
+import { blogPostsDeSorted } from "../data/blog";
 ---
 
 <BaseLayout
@@ -18,7 +18,7 @@ import { blogPostsDe } from "../data/blog";
     </section>
     <section class="grid grid-2">
       {
-        blogPostsDe.map((post) => (
+        blogPostsDeSorted.map((post) => (
           <article class="card post-card">
             <p class="muted post-meta">
               <time datetime={post.date}>{post.date}</time>

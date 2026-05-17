@@ -433,6 +433,37 @@ p {
   color: var(--muted);
 }
 
+.project-metrics {
+  margin-top: 0.8rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  gap: 0.45rem;
+}
+
+.project-metrics p {
+  margin: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.project-metrics p strong {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.project-metrics p span {
+  color: var(--muted);
+}
+
+.project-metrics p small {
+  color: var(--muted);
+  opacity: 0.86;
+  font-size: 0.76rem;
+}
+
 .contact-section p + .grid {
   margin-top: 1rem;
 }

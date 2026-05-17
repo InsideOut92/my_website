@@ -47,7 +47,7 @@ export const blogPostsDe: BlogPost[] = [
   {
     slug: 'datenqualitaet-validierung-vor-verarbeitung',
     title: 'Datenqualität in Integrationen: Validierung vor Verarbeitung',
-    date: '2026-05-15',
+    date: '2026-05-13',
     readingTime: '7 min',
     summary:
       'Warum Vorvalidierung in Integrationsprozessen Folgefehler reduziert und operative Stabilität in heterogenen Datenlandschaften verbessert.',
@@ -140,7 +140,7 @@ export const blogPostsEn: BlogPost[] = [
   {
     slug: 'data-quality-validation-before-processing',
     title: 'Data Quality in Integrations: Validation Before Processing',
-    date: '2026-05-15',
+    date: '2026-05-13',
     readingTime: '7 min',
     summary:
       'Why pre-processing validation reduces downstream incidents and improves operational stability across heterogeneous data sources.',
@@ -192,3 +192,11 @@ export const blogPostsEn: BlogPost[] = [
     tags: ['Legacy', 'Refactoring', 'Strategy'],
   },
 ];
+
+const sortByDateDesc = (a: BlogPost, b: BlogPost) => {
+  if (a.date === b.date) return a.title.localeCompare(b.title, 'de');
+  return a.date < b.date ? 1 : -1;
+};
+
+export const blogPostsDeSorted = [...blogPostsDe].sort(sortByDateDesc);
+export const blogPostsEnSorted = [...blogPostsEn].sort(sortByDateDesc);

@@ -3,10 +3,17 @@ export type ProjectFact = {
   text: string;
 };
 
+export type ProjectMetric = {
+  label: string;
+  value: string;
+  note: string;
+};
+
 export type ProjectCard = {
   title: string;
   subtitle: string;
   facts: ProjectFact[];
+  metrics?: ProjectMetric[];
 };
 
 export type ProjectCompact = {
@@ -24,6 +31,10 @@ export const selectedProjectsDe: ProjectCard[] = [
       { label: 'Betriebseffekt', text: 'Fehler wurden früher klassifizierbar, Nachbearbeitung besser priorisierbar und fachliche Rückfragen schneller auflösbar.' },
       { label: 'Warum das relevant ist', text: 'Die Integrationsstrecke blieb unter Änderungen steuerbar, statt bei jeder Formatabweichung operativ zu eskalieren.' },
     ],
+    metrics: [
+      { label: 'Manuelle Nacharbeit', value: 'spürbar reduziert', note: 'orientierende Beobachtung aus dem Tagesbetrieb, keine veröffentlichte Kundenzahl' },
+      { label: 'Fehleranalysezeit', value: 'kürzere Triage-Zyklen', note: 'Trend durch klarere Fehlerklassen und strukturierte Logs' },
+    ],
   },
   {
     title: 'Datenverarbeitung für Folgeprozesse',
@@ -33,6 +44,10 @@ export const selectedProjectsDe: ProjectCard[] = [
       { label: 'Technischer Ansatz', text: 'Deterministische Transformationsketten mit Prüfregeln für Pflichtfelder, Datentypen, Duplikate und fachliche Plausibilität.' },
       { label: 'Betriebseffekt', text: 'Korrekturschleifen verschoben sich aus dem Tagesgeschäft in einen kontrollierten Vorverarbeitungsprozess.' },
       { label: 'Warum das relevant ist', text: 'Nachgelagerte Systeme erhielten verlässlichere Eingaben und wurden weniger durch Ausreißer belastet.' },
+    ],
+    metrics: [
+      { label: 'Datenqualität', value: 'stabilere Eingabebasis', note: 'beobachteter Effekt in Folgeprozessen, ohne offengelegte interne KPI-Werte' },
+      { label: 'Betriebsaufwand', value: 'weniger Ad-hoc-Korrekturen', note: 'Trendbewertung aus operativer Praxis' },
     ],
   },
   {
@@ -44,6 +59,10 @@ export const selectedProjectsDe: ProjectCard[] = [
       { label: 'Betriebseffekt', text: 'Wiederkehrende Aufgaben liefen konsistenter und konnten auch bei Personalwechsel stabil fortgeführt werden.' },
       { label: 'Warum das relevant ist', text: 'Betriebszeit ging weniger in Routinepflege, mehr in gezielte Verbesserungsarbeit.' },
     ],
+    metrics: [
+      { label: 'Ausführungsstabilität', value: 'höher und reproduzierbar', note: 'auf Basis standardisierter Abläufe statt individueller Handarbeit' },
+      { label: 'Planbarkeit', value: 'klarere Zeitfenster', note: 'operative Einschätzung aus wiederkehrenden Runs' },
+    ],
   },
   {
     title: 'Monitoring und Fehleranalyse für Schnittstellen',
@@ -53,6 +72,10 @@ export const selectedProjectsDe: ProjectCard[] = [
       { label: 'Technischer Ansatz', text: 'Einheitliche Log-Korrelation, priorisierte Alerts und Trennung von Transport-, Validierungs- und Prozessfehlern.' },
       { label: 'Betriebseffekt', text: 'Incident-Triage wurde reproduzierbar, Übergaben zwischen Betrieb und Fachseite sauberer.' },
       { label: 'Warum das relevant ist', text: 'Störungsbearbeitung blieb auch unter Last strukturiert und weniger personenabhängig.' },
+    ],
+    metrics: [
+      { label: 'Reaktionsfähigkeit', value: 'frühere Erkennung von Drift', note: 'durch zusätzliche Prozesssignale neben technischen Fehlern' },
+      { label: 'Escalation Noise', value: 'geringer', note: 'weniger unklare Eskalationen durch bessere Priorisierung' },
     ],
   },
 ];
@@ -77,6 +100,10 @@ export const selectedProjectsEn: ProjectCard[] = [
       { label: 'Operational effect', text: 'Failures became easier to classify early, rework became easier to prioritize, and functional clarifications got faster.' },
       { label: 'Why it matters', text: 'The integration flow stayed controllable under change instead of escalating on each format deviation.' },
     ],
+    metrics: [
+      { label: 'Manual rework', value: 'noticeably reduced', note: 'operational observation, not a published client KPI' },
+      { label: 'Failure triage time', value: 'shorter cycles', note: 'trend after clearer error classes and structured logs' },
+    ],
   },
   {
     title: 'Data Processing for Downstream Systems',
@@ -86,6 +113,10 @@ export const selectedProjectsEn: ProjectCard[] = [
       { label: 'Technical approach', text: 'Deterministic transformation chains with checks for required fields, data types, duplicates, and business plausibility.' },
       { label: 'Operational effect', text: 'Correction loops moved from live operations into a controlled pre-processing stage.' },
       { label: 'Why it matters', text: 'Dependent systems received more reliable inputs and were less disrupted by outliers.' },
+    ],
+    metrics: [
+      { label: 'Data quality', value: 'more stable input baseline', note: 'observed impact in downstream operations without disclosing internal KPI figures' },
+      { label: 'Operational effort', value: 'fewer ad-hoc corrections', note: 'trend-level assessment from day-to-day operation' },
     ],
   },
   {
@@ -97,6 +128,10 @@ export const selectedProjectsEn: ProjectCard[] = [
       { label: 'Operational effect', text: 'Recurring tasks ran more consistently and remained stable across staffing changes.' },
       { label: 'Why it matters', text: 'Less operational time went into routine handling, more into targeted improvements.' },
     ],
+    metrics: [
+      { label: 'Execution stability', value: 'higher and repeatable', note: 'based on standardized runs instead of manual variance' },
+      { label: 'Planning reliability', value: 'clearer execution windows', note: 'operational estimate from recurring workload' },
+    ],
   },
   {
     title: 'Monitoring and Interface Incident Analysis',
@@ -106,6 +141,10 @@ export const selectedProjectsEn: ProjectCard[] = [
       { label: 'Technical approach', text: 'Unified log correlation, prioritized alerts, and separation of transport, validation, and process failures.' },
       { label: 'Operational effect', text: 'Incident triage became reproducible and handovers between operations and business teams improved.' },
       { label: 'Why it matters', text: 'Incident handling remained structured even under sustained load.' },
+    ],
+    metrics: [
+      { label: 'Response readiness', value: 'earlier drift detection', note: 'through process-level signals in addition to technical errors' },
+      { label: 'Escalation noise', value: 'lower', note: 'fewer ambiguous escalations after alert prioritization' },
     ],
   },
 ];
