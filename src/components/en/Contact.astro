@@ -1,4 +1,9 @@
-﻿<section class="section contact-section" id="contact-overview-en">
+﻿---
+import { profile } from "../../data/profile";
+const cvMailHref =
+  `mailto:${profile.email}?subject=CV%20Request%20and%20Profile&body=Hello%20Patrick%2C%0A%0AI%20am%20interested%20in%20your%20profile%20and%20would%20like%20to%20request%20your%20CV.%0A`;
+---
+<section class="section contact-section" id="contact-overview-en">
   <h2>Contact</h2>
   <p>
     If you are planning an integration or modernization initiative, we can align on scope, risks,
@@ -6,6 +11,8 @@
   </p>
   <div class="cta-row">
     <a class="btn btn-primary" href="mailto:Softwareentwickler@tutamail.com">Send E-Mail</a>
+    <a class="btn btn-secondary" href={cvMailHref}>Request CV</a>
+    {profile.linkedinUrl && <a class="text-link" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>}
   </div>
 
   <div class="grid grid-2">

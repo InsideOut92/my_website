@@ -1,3 +1,8 @@
+---
+import { profile } from "../data/profile";
+const cvMailHref =
+  `mailto:${profile.email}?subject=Anfrage%20Lebenslauf%20und%20Profil&body=Hallo%20Patrick%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20dein%20Profil%20und%20w%C3%BCrde%20mich%20%C3%BCber%20deinen%20Lebenslauf%20freuen.%0A`;
+---
 <section class="section contact-section" id="contact-overview">
   <h2>Kontakt</h2>
   <p>
@@ -6,6 +11,8 @@
   </p>
   <div class="cta-row">
     <a class="btn btn-primary" href="mailto:Softwareentwickler@tutamail.com">E-Mail senden</a>
+    <a class="btn btn-secondary" href={cvMailHref}>Lebenslauf anfragen</a>
+    {profile.linkedinUrl && <a class="text-link" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn Profil</a>}
   </div>
 
   <div class="grid grid-2">

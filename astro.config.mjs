@@ -12,4 +12,5 @@ const normalizedSite = site?.replace(/\/$/, '');
 
 export default defineConfig({
   ...(normalizedSite ? { site: normalizedSite } : {}),
+  trailingSlash: 'always',
 });

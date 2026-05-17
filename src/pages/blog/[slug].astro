@@ -5,6 +5,22 @@ import { blogPostsDe } from "../../data/blog";
 type ContentMap = Record<string, string[]>;
 
 const contentBySlug: ContentMap = {
+  "automatisierung-im-bestand-stabil-ausrollen": [
+    "Automatisierung in bestehenden Systemen scheitert oft nicht an Tools, sondern am Rollout-Modell. Wenn zu viele Prozessschritte auf einmal umgestellt werden, steigt das Risiko für Betriebsstörungen.",
+    "Ein belastbarer Einstieg beginnt mit einem klar abgegrenzten, wiederkehrenden Ablauf. Dieser wird zuerst technisch stabilisiert, dann automatisiert und erst danach auf weitere Prozessabschnitte ausgeweitet.",
+    "Wichtig ist eine nachvollziehbare Ausführungskette: feste Eingangsvalidierung, eindeutige Fehlerklassen, strukturierte Protokollierung und ein klarer Fallback-Pfad für Ausnahmefälle.",
+    "Für produktive Umgebungen zählt besonders die Reversibilität. Jeder Automatisierungsschritt sollte ohne großen Eingriff zurückgenommen werden können, falls angrenzende Prozesse unerwartet reagieren.",
+    "In der Praxis entsteht so ein iterativer Nutzen: weniger manuelle Routinearbeit, geringere Fehlerlast in Standardprozessen und bessere Planbarkeit im Tagesbetrieb.",
+    "Der zentrale Erfolgsfaktor ist Disziplin im Ausbau: klein starten, stabil betreiben, sauber dokumentieren und erst dann den nächsten Abschnitt automatisieren.",
+  ],
+  "monitoring-fuer-schnittstellen-welche-signale-zaehlen": [
+    "Viele Integrationslandschaften überwachen primär technische Fehlermeldungen. Das reicht für stabile Betriebsführung jedoch nicht aus, weil kritische Prozessabweichungen oft früher auftreten als harte Systemfehler.",
+    "Ein belastbares Monitoring unterscheidet mindestens drei Ebenen: Transportsignale (z. B. Zustellung und Antwortstatus), Verarbeitungsqualität (z. B. Validierungsfehler pro Datentyp) und Prozesswirkung (z. B. Rückstau oder verzögerte Folgeaktionen).",
+    "Besonders wirksam sind Frühindikatoren: steigende Wiederholungsraten, wachsender Anteil manueller Nachbearbeitung oder ungewöhnliche Laufzeitverteilungen. Diese Signale zeigen Instabilität oft Stunden vor einem sichtbaren Ausfall.",
+    "Für den Betrieb entscheidend ist eine klare Priorisierung. Nicht jeder Warnwert ist ein Incident. Warnungen sollten nach Geschäftsrelevanz und Auswirkungsradius sortiert sein, damit Teams zuerst auf kritische Prozesspfade reagieren.",
+    "Ein gutes Eskalationsmodell kombiniert technische und fachliche Sicht: Wer reagiert auf welchen Fehler, welche Daten müssen mitgeliefert werden und wann wird an nächste Stellen übergeben. Damit sinken Reibungsverluste in der Störungsbearbeitung.",
+    "Das Ergebnis ist nicht nur kürzere Reaktionszeit, sondern auch bessere Steuerbarkeit. Monitoring wird vom reinen Alarmkanal zum Instrument, mit dem Integrationsprozesse stabil und planbar geführt werden.",
+  ],
   "entwicklungspfad-von-lobster-data-zu-sap-naher-integration": [
     "Der Übergang in SAP-nahe Integrationsrollen gelingt am besten nicht über Buzzwords, sondern über belastbare Anschlussfähigkeit aus bestehender Praxis. Genau dort liegt der Vorteil aus Integrationsarbeit mit Lobster Data.",
     "Wer bereits Mapping-Logik, Validierungsregeln, Routing-Pfade und Fehlerklassen im Betrieb verantwortet, bringt zentrale Grundlagen für ERP-nahe Integrationsarbeit mit: Strukturdenken, Prozessverständnis und Betriebsdisziplin.",

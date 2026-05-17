@@ -9,6 +9,24 @@ export type BlogPost = {
 
 export const blogPostsDe: BlogPost[] = [
   {
+    slug: 'automatisierung-im-bestand-stabil-ausrollen',
+    title: 'Automatisierung im Bestand: klein starten, stabil ausrollen',
+    date: '2026-06-09',
+    readingTime: '7 min',
+    summary:
+      'Wie wiederkehrende Betriebsaufgaben schrittweise automatisiert werden können, ohne laufende Prozesse zu destabilisieren.',
+    tags: ['Automatisierung', 'Betrieb', 'Bestandssysteme'],
+  },
+  {
+    slug: 'monitoring-fuer-schnittstellen-welche-signale-zaehlen',
+    title: 'Monitoring für Schnittstellen: Welche Signale im Betrieb wirklich zählen',
+    date: '2026-06-02',
+    readingTime: '7 min',
+    summary:
+      'Praxisorientierter Überblick zu Monitoring-Signalen für Integrationen – von technischen Fehlern bis zu prozessrelevanten Frühindikatoren.',
+    tags: ['Monitoring', 'Integration', 'Betrieb'],
+  },
+  {
     slug: 'entwicklungspfad-von-lobster-data-zu-sap-naher-integration',
     title: 'Vom Lobster-Data-Schwerpunkt zur SAP-nahen Integrationsentwicklung',
     date: '2026-05-17',
@@ -83,6 +101,24 @@ export const blogPostsDe: BlogPost[] = [
 ];
 
 export const blogPostsEn: BlogPost[] = [
+  {
+    slug: 'automation-in-existing-systems-start-small-roll-out-stable',
+    title: 'Automation in Existing Systems: Start Small, Roll Out Stable',
+    date: '2026-06-09',
+    readingTime: '7 min',
+    summary:
+      'How recurring operational tasks can be automated incrementally without destabilizing live production processes.',
+    tags: ['Automation', 'Operations', 'Legacy Systems'],
+  },
+  {
+    slug: 'interface-monitoring-which-signals-matter-in-operations',
+    title: 'Interface Monitoring: Which Signals Actually Matter in Operations',
+    date: '2026-06-02',
+    readingTime: '7 min',
+    summary:
+      'Practical overview of monitoring signals for integrations, from technical failures to process-level early indicators.',
+    tags: ['Monitoring', 'Integration', 'Operations'],
+  },
   {
     slug: 'from-lobster-data-to-sap-adjacent-integration-engineering',
     title: 'From Lobster Data to SAP-Adjacent Integration Engineering',
