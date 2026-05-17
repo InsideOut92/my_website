@@ -5,6 +5,13 @@ import { blogPostsEn } from '../../../data/blog';
 type ContentMap = Record<string, string[]>;
 
 const contentBySlug: ContentMap = {
+  'legacy-modernization-without-production-downtime': [
+    'Many legacy modernization efforts fail not because of technology, but because of oversized changes at the wrong time. Once critical workflows are modified all at once, operational risk rises disproportionately.',
+    'A durable approach starts with clear sequencing: stabilize critical paths first, improve observability second, and only then expand functionality. This keeps production impact under control.',
+    'A small, repeatable change pattern works best: short iterations, explicit rollback paths, structured logging, and fixed acceptance criteria per step. This lowers uncertainty for both operations and business teams.',
+    'Technically, the leverage is often less about new tools and more about clear interfaces and ownership boundaries in code. Better module boundaries usually outperform large framework debates.',
+    'For decision-makers, the key point is that modernization is not a one-off project. It is a steering process where visible risk and measurable progress enable sustained delivery speed without instability.',
+  ],
   'cloudflare-portfolio-migration-custom-domain': [
     'This website initially ran as a simple project page on a default subdomain. For a professional presence, the next step was moving to a custom domain with a cleaner technical baseline.',
     'The migration was treated as a quality initiative, not just a DNS switch. The goal was to keep user flow, indexing behavior, and future maintainability stable during and after the move.',

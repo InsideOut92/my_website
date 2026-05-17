@@ -9,6 +9,15 @@ export type BlogPost = {
 
 export const blogPostsDe: BlogPost[] = [
   {
+    slug: 'legacy-modernisierung-ohne-produktionsstillstand',
+    title: 'Legacy-Modernisierung ohne Produktionsstillstand',
+    date: '2026-05-19',
+    readingTime: '7 min',
+    summary:
+      'Praxisleitfaden für schrittweise Modernisierung im Bestand mit Fokus auf Betriebsstabilität, Änderbarkeit und nachvollziehbare Risiken.',
+    tags: ['Legacy', 'Modernisierung', 'Betrieb'],
+  },
+  {
     slug: 'cloudflare-migration-portfolio-domain',
     title: 'Portfolio-Migration auf Cloudflare: Von pages.dev zur eigenen Domain',
     date: '2026-05-17',
@@ -47,6 +56,15 @@ export const blogPostsDe: BlogPost[] = [
 ];
 
 export const blogPostsEn: BlogPost[] = [
+  {
+    slug: 'legacy-modernization-without-production-downtime',
+    title: 'Legacy Modernization Without Production Downtime',
+    date: '2026-05-19',
+    readingTime: '7 min',
+    summary:
+      'Practical guide for phased modernization in existing systems with focus on operational stability, maintainability, and transparent risk.',
+    tags: ['Legacy', 'Modernization', 'Operations'],
+  },
   {
     slug: 'cloudflare-portfolio-migration-custom-domain',
     title: 'Portfolio Migration on Cloudflare: From pages.dev to a Custom Domain',
