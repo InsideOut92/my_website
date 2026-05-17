@@ -5,6 +5,14 @@ import { blogPostsDe } from '../../data/blog';
 type ContentMap = Record<string, string[]>;
 
 const contentBySlug: ContentMap = {
+  'cloudflare-migration-portfolio-domain': [
+    'Diese Website wurde initial als einfache Projektseite auf einer Standard-Subdomain betrieben. Für einen professionellen Auftritt war der nächste Schritt eine eigene Domain mit konsistenter technischer Basis.',
+    'Die Migration wurde nicht als reine DNS-Aufgabe behandelt, sondern als Qualitätsmaßnahme für Auffindbarkeit und Wartbarkeit. Ziel war, dass Nutzerführung, Indexierung und zukünftige Erweiterungen stabil bleiben.',
+    'Wichtige Entscheidungen in der Umsetzung: konsistente Canonical-URLs, hreflang-Verknüpfungen für Deutsch/Englisch, saubere Sitemap-Generierung und robots.txt mit korrekter Referenz auf die produktive Domain.',
+    'Parallel wurde die Auslieferung gehärtet. Dazu gehören Sicherheitsheader auf Response-Ebene, klare URL-Struktur und strukturierte Daten für zentrale Seiten und Blog-Artikel.',
+    'Im Content-Bereich wurde die Seite bewusst von generischen Profiltexten zu nachvollziehbaren Engineering-Case-Patterns verschoben. Der Fokus liegt auf Problem, Lösung und Ergebnis statt auf Schlagwortlisten.',
+    'Das Ergebnis ist kein einmaliger Relaunch, sondern eine belastbare Ausgangsbasis: technisch konsistent, sprachlich differenziert und bereit für weitere fachliche Beiträge mit echtem Signal für Recruiter und Auftraggeber.',
+  ],
   'api-integrationen-robust-designen': [
     'Viele Integrationsprobleme entstehen nicht durch fehlende Features, sondern durch unklare Fehlerpfade. In produktiven Systemen ist entscheidend, wie sauber Timeouts, Wiederholungen und Teilfehler behandelt werden.',
     'Bewährt haben sich klare technische Verträge: eindeutige Fehlerklassen, idempotente Endpunkte, Retry mit Backoff und aussagekräftige Log-Korrelation. Damit sinken Störzeiten und Ursachen lassen sich schneller eingrenzen.',

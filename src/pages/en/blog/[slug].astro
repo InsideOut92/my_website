@@ -5,6 +5,14 @@ import { blogPostsEn } from '../../../data/blog';
 type ContentMap = Record<string, string[]>;
 
 const contentBySlug: ContentMap = {
+  'cloudflare-portfolio-migration-custom-domain': [
+    'This website initially ran as a simple project page on a default subdomain. For a professional presence, the next step was moving to a custom domain with a cleaner technical baseline.',
+    'The migration was treated as a quality initiative, not just a DNS switch. The goal was to keep user flow, indexing behavior, and future maintainability stable during and after the move.',
+    'Core implementation decisions included consistent canonical URLs, hreflang mapping for German and English pages, reliable sitemap generation, and robots.txt aligned with the production domain.',
+    'In parallel, delivery was hardened with response-level security headers, predictable URL structure, and structured data for key pages and blog articles.',
+    'Content strategy was also adjusted from generic profile wording to engineering-style case patterns. Priority was placed on problem, solution, and result framing instead of broad keyword lists.',
+    'The outcome is not a one-off redesign but a scalable base: technically consistent, clearly structured across languages, and ready for further high-signal technical writing for recruiters and clients.',
+  ],
   'designing-production-grade-api-integrations': [
     'Most integration failures are not caused by missing features. They are caused by unclear operational behavior when calls timeout, dependencies degrade, or payloads are partially valid.',
     'Production-grade interfaces need explicit contracts: clear error classes, idempotent writes, retry with backoff, and request correlation from edge to downstream services. This directly shortens diagnosis time.',

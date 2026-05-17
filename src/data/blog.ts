@@ -9,6 +9,15 @@ export type BlogPost = {
 
 export const blogPostsDe: BlogPost[] = [
   {
+    slug: 'cloudflare-migration-portfolio-domain',
+    title: 'Portfolio-Migration auf Cloudflare: Von pages.dev zur eigenen Domain',
+    date: '2026-05-17',
+    readingTime: '8 min',
+    summary:
+      'Technische Fallstudie zur Migration auf eine eigene Domain mit Fokus auf SEO-Konsistenz, saubere Auslieferung und wartbare Basis.',
+    tags: ['Cloudflare', 'SEO', 'Deployment'],
+  },
+  {
     slug: 'api-integrationen-robust-designen',
     title: 'API-Integrationen robust designen: Was in Produktion wirklich zählt',
     date: '2026-05-10',
@@ -38,6 +47,15 @@ export const blogPostsDe: BlogPost[] = [
 ];
 
 export const blogPostsEn: BlogPost[] = [
+  {
+    slug: 'cloudflare-portfolio-migration-custom-domain',
+    title: 'Portfolio Migration on Cloudflare: From pages.dev to a Custom Domain',
+    date: '2026-05-17',
+    readingTime: '8 min',
+    summary:
+      'Technical case study on moving to a custom domain with emphasis on SEO consistency, clean delivery, and maintainable structure.',
+    tags: ['Cloudflare', 'SEO', 'Deployment'],
+  },
   {
     slug: 'designing-production-grade-api-integrations',
     title: 'Designing Production-Grade API Integrations',
